@@ -19,8 +19,8 @@
 <div class="bottom-line">
     <span class="bottom-line--copy">Copyright &copy; 2021</span>
     <div class="bottom-line--icons">
-        <a href="#" class="btn btn--small"><img src="<c:url value="images/icon-facebook.svg"/>" alt="Facebook icon" /> </a>
-        <a href="#" class="btn btn--small"><img src="<c:url value=" images/icon-instagram.svg"/>" alt="Instagram icon" /></a>
+        <a href="#" class="btn btn--small"><img src="<c:url value="resources/images/icon-facebook.svg"/>" alt="Facebook icon" /> </a>
+        <a href="#" class="btn btn--small"><img src="<c:url value="resources/images/icon-instagram.svg"/>" alt="Instagram icon" /></a>
     </div>
 </div>
 </footer>
