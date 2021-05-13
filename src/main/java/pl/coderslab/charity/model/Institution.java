@@ -1,27 +1,25 @@
 package pl.coderslab.charity.model;
 
 import javax.persistence.*;
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
 
 @Entity
-@Table(name = "category")
-public class Category {
+@Table(name = "institution")
+public class Institution {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @NotNull
-    @Size(min = 2, max = 255)
     private String name;
 
+    private String description;
 
-    public Category() {
+    public Institution() {
     }
 
-    public Category(String name) {
+    public Institution(String name, String description) {
         this.name = name;
+        this.description = description;
     }
 
     public Long getId() {
@@ -38,5 +36,13 @@ public class Category {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 }
