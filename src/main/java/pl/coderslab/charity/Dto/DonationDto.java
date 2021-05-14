@@ -1,4 +1,7 @@
-package pl.coderslab.charity.model;
+package pl.coderslab.charity.Dto;
+
+import pl.coderslab.charity.model.Category;
+import pl.coderslab.charity.model.Institution;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
@@ -8,9 +11,7 @@ import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.List;
 
-@Entity
-@Table(name = "donation")
-public class Donation {
+public class DonationDto {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -44,11 +45,14 @@ public class Donation {
     private String pickUpComment;
 
 //brak telefonu
-    public Donation() {
+
+
+    public DonationDto() {
     }
 
-    public Donation(Integer quantity, List<Category> categories, Institution institution,
-                    String city, String zipCode, LocalDate pickUpDate, LocalTime pickUpTime, String pickUpComment) {
+    public DonationDto(Long id, Integer quantity, List<Category> categories, Institution institution, String city,
+                       String zipCode, LocalDate pickUpDate, LocalTime pickUpTime, String pickUpComment) {
+        this.id = id;
         this.quantity = quantity;
         this.categories = categories;
         this.institution = institution;

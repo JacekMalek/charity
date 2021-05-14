@@ -8,9 +8,7 @@ public interface InstitutionService <T>{
 
     List<T> getAll();
 
-    List<T> getFirstHalf();
-
-    List<T> getSecondHalf();
+    List<T> getFirstFour();
 
     void add(T t);
 

@@ -67,6 +67,39 @@
 
 <section class="help">
     <h2>Komu pomagamy?</h2>
+    <div class="help--slides active" data-id="1">
+        <p>W naszej bazie znajdziesz listę zweryfikowanych Fundacji, z którymi współpracujemy.
+            Możesz sprawdzić czym się zajmują.</p>
+
+        <ul class="help--slides-items">
+            <li>
+                <div class="col">
+                    <div class="title">Fundacja "Dbam o Zdrowie"</div>
+                    <div class="subtitle">Cel i misja: Pomoc dzieciom z ubogich rodzin.</div>
+                </div>
+
+                <div class="col">
+                    <div class="title">Fundacja "A kogo"</div>
+                    <div class="subtitle">Cel i misja: Pomoc wybudzaniu dzieci ze śpiączki.</div>
+                </div>
+            </li>
+
+            <li>
+                <div class="col">
+                    <div class="title">Fundacja “Dla dzieci"</div>
+                    <div class="subtitle">Cel i misja: Pomoc osobom znajdującym się w trudnej sytuacji życiowej.</div>
+                </div>
+                <div class="col">
+                    <div class="title">Fundacja “Bez domu”</div>
+                    <div class="subtitle">Cel i misja: Pomoc dla osób nie posiadających miejsca zamieszkania</div>
+                </div>
+
+            </li>
+
+        </ul>
+
+
+    </div>
 
     <!-- SLIDE 1 -->
     <div class="help--slides active" data-id="1">
@@ -74,20 +107,18 @@
             Możesz sprawdzić czym się zajmują.</p>
 
         <ul class="help--slides-items">
-            <c:forEach items="${institutionsFirst}" var="institutionFirst">
+            <c:forEach items="${institutions}" var="institution" varStatus="count">
                 <li>
                     <div class="col">
-                        <div class="title"><c:out value="${institutionFirst.name}"/></div>
-                        <div class="subtitle"><c:out value="${institutionFirst.description}"/></div>
+                        <div class="title">${count.count} ${institution.name}</div>
+                        <div class="subtitle"> ${count.last ? '<hr/>' : ''} ${institution.description}</div>
                     </div>
                 </li>
-            </c:forEach>
 
-            <c:forEach items="${institutionsSecond}" var="institutionSecond">
                 <li>
                     <div class="col">
-                        <div class="title"><c:out value="${institutionSecond.name}"/></div>
-                        <div class="subtitle"><c:out value="${institutionSecond.description}"/></div>
+                        <div class="title">  </div>
+                        <div class="subtitle"></div>
                     </div>
                 </li>
             </c:forEach>
