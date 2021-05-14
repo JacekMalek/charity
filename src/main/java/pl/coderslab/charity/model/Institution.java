@@ -1,6 +1,8 @@
 package pl.coderslab.charity.model;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Size;
 
 @Entity
 @Table(name = "institution")
@@ -10,14 +12,20 @@ public class Institution {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @NotBlank
+    @Size(min = 2, max = 255)
     private String name;
 
+    @NotBlank
+    @Size(min = 10)
     private String description;
+
 
     public Institution() {
     }
 
-    public Institution(String name, String description) {
+    public Institution(Long id, String name, String description) {
+        this.id = id;
         this.name = name;
         this.description = description;
     }

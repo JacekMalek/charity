@@ -1,20 +1,9 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
-<%@ taglib prefix = "fmt" uri = "http://java.sun.com/jsp/jstl/fmt" %>
-<!DOCTYPE html>
-<html lang="pl">
-<head>
-    <meta charset="UTF-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
-    <title>Document</title>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
-    <link rel="stylesheet" href="<c:url value="resources/css/style.css"/>"/>
-</head>
-<body>
-
-<%@include file="header.jsp"%>
+<%@include file="header.jsp" %>
 
 <section class="stats">
     <div class="container container--85">
@@ -85,38 +74,27 @@
             Możesz sprawdzić czym się zajmują.</p>
 
         <ul class="help--slides-items">
-            <li>
-                <div class="col">
-                    <div class="title">Fundacja "Dbam o Zdrowie"</div>
-                    <div class="subtitle">Cel i misja: Pomoc dzieciom z ubogich rodzin.</div>
-                </div>
+            <c:forEach items="${institutionsFirst}" var="institutionFirst">
+                <li>
+                    <div class="col">
+                        <div class="title"><c:out value="${institutionFirst.name}"/></div>
+                        <div class="subtitle"><c:out value="${institutionFirst.description}"/></div>
+                    </div>
+                </li>
+            </c:forEach>
 
-                <div class="col">
-                    <div class="title">Fundacja "A kogo"</div>
-                    <div class="subtitle">Cel i misja: Pomoc wybudzaniu dzieci ze śpiączki.</div>
-                </div>
-            </li>
-
-            <li>
-                <div class="col">
-                    <div class="title">Fundacja “Dla dzieci"</div>
-                    <div class="subtitle">Cel i misja: Pomoc osobom znajdującym się w trudnej sytuacji życiowej.</div>
-                </div>
-                <div class="col">
-                    <div class="title">Fundacja “Bez domu”</div>
-                    <div class="subtitle">Cel i misja: Pomoc dla osób nie posiadających miejsca zamieszkania</div>
-                </div>
-
-            </li>
-
+            <c:forEach items="${institutionsSecond}" var="institutionSecond">
+                <li>
+                    <div class="col">
+                        <div class="title"><c:out value="${institutionSecond.name}"/></div>
+                        <div class="subtitle"><c:out value="${institutionSecond.description}"/></div>
+                    </div>
+                </li>
+            </c:forEach>
         </ul>
     </div>
 
 </section>
 
-<%@include file="footer.jsp"%>
+<%@include file="footer.jsp" %>
 
-<script src="<c:url value="resources/js/app.js"/>"></script>
-
-</body>
-</html>

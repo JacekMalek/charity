@@ -1,9 +1,11 @@
 package pl.coderslab.charity.model;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
 import java.time.LocalDate;
 import java.time.LocalTime;
-import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -14,25 +16,34 @@ public class Donation {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @NotBlank
     private Integer quantity;
 
-    @OneToMany
-    private List<Category> categories = new ArrayList<>();
+    @ManyToMany
+    @NotNull
+    private List<Category> categories;
 
-    @OneToOne
+    @ManyToOne
+    @NotNull
     private Institution institution;
 
+    @NotBlank
     private String city;
 
+    @NotBlank
+    @Pattern(message = "Proszę podać prawidłowy kod", regexp = "^[0-9]{2}-[0-9]{3}$")
+    //TODO  Do sprawdzenia czy działa prawidłowo
     private String zipCode;
 
+    @NotBlank
     private LocalDate pickUpDate;
 
+    @NotBlank
     private LocalTime pickUpTime;
 
     private String pickUpComment;
 
-
+//brak telefonu
     public Donation() {
     }
 

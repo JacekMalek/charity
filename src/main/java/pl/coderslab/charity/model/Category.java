@@ -1,7 +1,7 @@
 package pl.coderslab.charity.model;
 
 import javax.persistence.*;
-import javax.validation.constraints.NotNull;
+import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 
 @Entity
@@ -12,13 +12,15 @@ public class Category {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @NotNull
+    @NotBlank
     @Size(min = 2, max = 255)
     private String name;
 
 
     public Category() {
     }
+
+
 
     public Category(String name) {
         this.name = name;
