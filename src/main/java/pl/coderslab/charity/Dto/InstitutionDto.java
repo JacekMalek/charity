@@ -1,12 +1,12 @@
-package pl.coderslab.charity.model;
+package pl.coderslab.charity.Dto;
 
-import javax.persistence.*;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 
-@Entity
-@Table(name = "institution")
-public class Institution {
+public class InstitutionDto {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -21,13 +21,22 @@ public class Institution {
     private String description;
 
 
-    public Institution() {
+    public InstitutionDto() {
     }
 
-    public Institution(Long id, String name, String description) {
+    public InstitutionDto(Long id, String name, String description) {
         this.id = id;
         this.name = name;
         this.description = description;
+    }
+
+    @Override
+    public String toString() {
+        return "InstitutionDto{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", description='" + description + '\'' +
+                '}';
     }
 
     public Long getId() {
@@ -53,4 +62,5 @@ public class Institution {
     public void setDescription(String description) {
         this.description = description;
     }
+
 }
