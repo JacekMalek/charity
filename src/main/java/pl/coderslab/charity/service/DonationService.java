@@ -1,14 +1,14 @@
 package pl.coderslab.charity.service;
 
+
 import java.util.List;
 import java.util.Optional;
 
-public interface InstitutionService <T>{
+
+public interface DonationService<T>{
 
 
     List<T> getAll();
-
-    List<T> getFirstFour();
 
     void add(T t);
 
@@ -18,5 +18,8 @@ public interface InstitutionService <T>{
 
     void update(T t);
 
-}
+    Integer numberOfGifts();
 
+    Integer numberOfBags();
+
+}

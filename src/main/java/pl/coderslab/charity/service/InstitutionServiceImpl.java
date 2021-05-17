@@ -5,7 +5,6 @@ import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 import pl.coderslab.charity.Dto.InstitutionDto;
 import pl.coderslab.charity.repository.InstitutionRepository;
-
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -30,12 +29,8 @@ public class InstitutionServiceImpl implements InstitutionService<InstitutionDto
 
     @Override
     public List<InstitutionDto> getFirstFour() {
-        return institutionRepository.findAll()
-                .stream()
-                .map(institution -> new InstitutionDto(institution.getId(), institution.getName(), institution.getDescription()))
-                .collect(Collectors.toList()).subList(0, 4);
+        return getAll().subList(0,4);
     }
-
 
     @Override
     public void add(InstitutionDto institutionDto) {
