@@ -9,6 +9,7 @@ import pl.coderslab.charity.service.DonationServiceImpl;
 import pl.coderslab.charity.service.InstitutionServiceImpl;
 
 import java.util.List;
+import java.util.Optional;
 
 
 @Controller
@@ -28,7 +29,7 @@ public class HomeController {
     public String homeAction(Model model){
         List<InstitutionDto> institutions = institutionServiceImpl.getFirstFour();
         Integer numberOfGifts = donationServiceImpl.numberOfGifts();
-        Integer numberOfBags = donationServiceImpl.numberOfBags();
+        Optional<Integer> numberOfBags = donationServiceImpl.numberOfBags();
         model.addAttribute("institutions", institutions);
         model.addAttribute("numberOfGifts", numberOfGifts);
         model.addAttribute("numberOfBags", numberOfBags);
