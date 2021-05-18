@@ -47,9 +47,8 @@ public class DonationServiceImpl implements DonationService<DonationDto> {
     }
 
     @Override
-    public Integer numberOfBags() {
-        return donationRepository.findSumAllBags();
+    public Optional<Integer> numberOfBags() {
+        return Optional.of(donationRepository.findSumAllBags().orElse(0));
     }
-
 
 }
