@@ -28,7 +28,7 @@ public class HomeController {
     @GetMapping("/")
     public String homeAction(Model model){
         List<InstitutionDto> institutions = institutionServiceImpl.getFirstFour();
-        Integer numberOfGifts = donationServiceImpl.numberOfGifts();
+        Long numberOfGifts = donationServiceImpl.numberOfGifts();
         Optional<Integer> numberOfBags = donationServiceImpl.numberOfBags();
         model.addAttribute("institutions", institutions);
         model.addAttribute("numberOfGifts", numberOfGifts);
@@ -36,10 +36,7 @@ public class HomeController {
         return "index";
     }
 
-    @GetMapping("/form")
-    public String form(Model model){
-        return "form";
-    }
+
 
     @GetMapping("/login")
     public String login(Model model){

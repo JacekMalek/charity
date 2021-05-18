@@ -42,8 +42,8 @@ public class DonationServiceImpl implements DonationService<DonationDto> {
     }
 
     @Override
-    public Integer numberOfGifts() {
-        return donationRepository.findAll().size();
+    public Long numberOfGifts() {
+        return donationRepository.count();
     }
 
     @Override

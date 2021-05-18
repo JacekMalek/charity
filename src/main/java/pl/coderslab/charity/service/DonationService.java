@@ -18,7 +18,7 @@ public interface DonationService<T>{
 
     void update(T t);
 
-    Integer numberOfGifts();
+    Long numberOfGifts();
 
    Optional <Integer> numberOfBags();
 
