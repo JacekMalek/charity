@@ -36,10 +36,10 @@ public class DonationDto {
     //TODO  Do sprawdzenia czy działa prawidłowo
     private String zipCode;
 
-    @NotBlank
+    @NotNull
     private LocalDate pickUpDate;
 
-    @NotBlank
+    @NotNull
     private LocalTime pickUpTime;
 
     private String pickUpComment;

@@ -1,12 +1,9 @@
 package pl.coderslab.charity.service;
 
-
 import java.util.List;
 import java.util.Optional;
 
-
-public interface DonationService<T>{
-
+public interface CategoryService <T> {
 
     List<T> getAll();
 
@@ -17,9 +14,4 @@ public interface DonationService<T>{
     void delete(Long id);
 
     void update(T t);
-
-    Long numberOfGifts();
-
-   Optional <Integer> numberOfBags();
-
 }
