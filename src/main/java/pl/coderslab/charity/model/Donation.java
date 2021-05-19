@@ -35,10 +35,12 @@ public class Donation {
     //TODO  Do sprawdzenia czy działa prawidłowo
     private String zipCode;
 
-    @NotBlank
+    @NotNull
+    @Column(name = "pick_up_date")
     private LocalDate pickUpDate;
 
-    @NotBlank
+    @NotNull
+    @Column(name = "pick_up_time")
     private LocalTime pickUpTime;
 
     private String pickUpComment;
