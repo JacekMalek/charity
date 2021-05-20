@@ -2,6 +2,8 @@ package pl.coderslab.charity.service;
 
 import org.springframework.stereotype.Service;
 import pl.coderslab.charity.Dto.DonationDto;
+import pl.coderslab.charity.mappers.DonationMapper;
+import pl.coderslab.charity.model.Donation;
 import pl.coderslab.charity.repository.DonationRepository;
 
 import java.util.List;
@@ -23,8 +25,12 @@ public class DonationServiceImpl implements DonationService<DonationDto> {
 
     @Override
     public void add(DonationDto donationDto) {
-
+        Donation donation = new Donation();
+        DonationMapper.donationMapper(donationDto, donation);
+        donationRepository.save(donation);
     }
+
+
 
     @Override
     public Optional<DonationDto> get(Long id) {
@@ -50,5 +56,5 @@ public class DonationServiceImpl implements DonationService<DonationDto> {
     public Optional<Integer> numberOfBags() {
         return Optional.of(donationRepository.findSumAllBags().orElse(0));
     }
-
+//TODO Do zmiany Optional w numberOfBags
 }
