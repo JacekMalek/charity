@@ -1,10 +1,6 @@
 package pl.coderslab.charity.model;
 
-import org.springframework.format.annotation.DateTimeFormat;
-import org.springframework.format.annotation.NumberFormat;
-
 import javax.persistence.*;
-import javax.validation.constraints.*;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.List;
@@ -17,48 +13,26 @@ public class Donation {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @NotNull(message = "Ilość worków musi być większa od 0")
-    @Min(value = 1, message = "Ilość worków musi być większa od 0")
     private Integer quantity;
 
     @ManyToMany
-    @NotNull(message = "Musi zostać wybrana minimum jedna kategoria")
     private List<Category> categories;
 
     @ManyToOne
-    @NotNull(message = "Musi zostać wybrana minimum jedna instytucja")
     private Institution institution;
 
-    @NotBlank(message = "Nazwa nie może być pusta")
-    @Size(message = "Nazwa winna zwierać minimum 3 litery", min = 3)
     private String city;
 
-    @NotBlank(message = "Nazwa nie może być pusta")
-    @Size(message = "Nazwa winna zwierać minimum 3 litery", min = 3)
     private String street;
 
-    @NotBlank
-    @Pattern(message = "Proszę podać prawidłowy kod pocztowy w formacie XX-XXX", regexp = "^[0-9]{2}-[0-9]{3}$")
-    //TODO  Do sprawdzenia czy działa prawidłowo
     private String zipCode;
 
-    //TODO Do sprawdzenia format daty
-
-    @NotNull
-    @Column(name = "pick_up_date")
-    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate pickUpDate;
 
-    @NotNull
-    @Column(name = "pick_up_time")
     private LocalTime pickUpTime;
 
     private String pickUpComment;
 
-    //Zapytać czy jest dobrze
-    @NumberFormat(style = NumberFormat.Style.NUMBER)
-    @NotBlank(message = "Nazwa nie może być pusta")
-    @Pattern(message = "Proszę podać prawidłowy numer telefonu", regexp = "[0-9]{9}")
     private String phoneNumber;
 
     public Donation() {

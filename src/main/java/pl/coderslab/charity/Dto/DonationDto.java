@@ -39,10 +39,8 @@ public class DonationDto {
 
     @Pattern(message = "Proszę podać prawidłowy kod pocztowy w formacie XX-XXX", regexp = "^[0-9]{2}-[0-9]{3}$")
     @NotBlank
-    //TODO  Do sprawdzenia czy działa prawidłowo
     private String zipCode;
 
-    //TODO Do sprawdzenia format daty
     @NotNull
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     @Future
@@ -51,16 +49,11 @@ public class DonationDto {
     @NotNull
     private LocalTime pickUpTime;
 
-//Zapytać czy jest dobrze
     @NotBlank(message = "Nazwa nie może być pusta")
     @Pattern(message = "Proszę podać prawidłowy numer telefonu", regexp = "[0-9]{9}")
     private String phoneNumber;
-    //TODO Sprawdzić walidację numeru telefonu
 
     private String pickUpComment;
-
-
-
 
     public DonationDto() {
     }

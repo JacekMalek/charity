@@ -4,13 +4,17 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import pl.coderslab.charity.Dto.CategoryDto;
 import pl.coderslab.charity.Dto.DonationDto;
+import pl.coderslab.charity.Dto.InstitutionDto;
 import pl.coderslab.charity.service.CategoryServiceImpl;
 import pl.coderslab.charity.service.DonationServiceImpl;
 import pl.coderslab.charity.service.InstitutionServiceImpl;
 
 import javax.validation.Valid;
+import java.util.List;
 
 @Controller
 public class DonationController {
@@ -29,8 +33,6 @@ public class DonationController {
     @GetMapping("/form")
     public String form(Model model){
         model.addAttribute("donationDto", new DonationDto());
-        model.addAttribute("formCategories", categoryServiceImpl.getAll());
-        model.addAttribute("formInstitutions", institutionServiceImpl.getAll());
         return "form";
     }
 
@@ -46,6 +48,16 @@ public class DonationController {
     @GetMapping("/form-confirmation")
     public String confirmation(){
         return "/form-confirmation";
+    }
+
+    @ModelAttribute("formCategories")
+    public List<CategoryDto> categories(){
+        return categoryServiceImpl.getAll();
+    }
+
+    @ModelAttribute("formInstitutions")
+    public List<InstitutionDto> institutions(){
+        return institutionServiceImpl.getAll();
     }
 
 }

@@ -56,5 +56,4 @@ public class DonationServiceImpl implements DonationService<DonationDto> {
     public Integer numberOfBags() {
         return donationRepository.findSumAllBags().orElse(0);
     }
-//TODO Do zmiany Optional w numberOfBags
 }
