@@ -5,7 +5,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import pl.coderslab.charity.Dto.InstitutionDto;
-import pl.coderslab.charity.service.CategoryServiceImpl;
+import pl.coderslab.charity.model.Institution;
 import pl.coderslab.charity.service.DonationServiceImpl;
 import pl.coderslab.charity.service.InstitutionServiceImpl;
 
@@ -30,7 +30,7 @@ public class HomeController {
     public String homeAction(Model model){
         List<InstitutionDto> institutions = institutionServiceImpl.getFirstFour();
         Long numberOfGifts = donationServiceImpl.numberOfGifts();
-        Optional<Integer> numberOfBags = donationServiceImpl.numberOfBags();
+        Integer numberOfBags = donationServiceImpl.numberOfBags();
         model.addAttribute("institutions", institutions);
         model.addAttribute("numberOfGifts", numberOfGifts);
         model.addAttribute("numberOfBags", numberOfBags);

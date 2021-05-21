@@ -2,8 +2,10 @@ package pl.coderslab.charity.service;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 import pl.coderslab.charity.Dto.InstitutionDto;
+import pl.coderslab.charity.model.Institution;
 import pl.coderslab.charity.repository.InstitutionRepository;
 import java.util.List;
 import java.util.Optional;
@@ -29,9 +31,11 @@ public class InstitutionServiceImpl implements InstitutionService<InstitutionDto
 
     @Override
     public List<InstitutionDto> getFirstFour() {
-        return getAll().subList(0,4);
+        return institutionRepository.findAll(PageRequest.of(0, 4))
+                .map(institution -> new InstitutionDto(institution.getId(), institution.getName(), institution.getDescription()))
+                .getContent();
     }
-
+//Do zmiany
     @Override
     public void add(InstitutionDto institutionDto) {
 
