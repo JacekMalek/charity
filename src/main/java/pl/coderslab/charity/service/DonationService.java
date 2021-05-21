@@ -20,6 +20,6 @@ public interface DonationService<T>{
 
     Long numberOfGifts();
 
-   Optional <Integer> numberOfBags();
+   Integer numberOfBags();
 
 }

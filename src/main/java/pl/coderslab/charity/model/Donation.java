@@ -1,9 +1,6 @@
 package pl.coderslab.charity.model;
 
 import javax.persistence.*;
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Pattern;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.List;
@@ -16,49 +13,43 @@ public class Donation {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @NotBlank
     private Integer quantity;
 
     @ManyToMany
-    @NotNull
     private List<Category> categories;
 
     @ManyToOne
-    @NotNull
     private Institution institution;
 
-    @NotBlank
     private String city;
 
-    @NotBlank
-    @Pattern(message = "Proszę podać prawidłowy kod pocztowy", regexp = "^[0-9]{2}-[0-9]{3}$")
-    //TODO  Do sprawdzenia czy działa prawidłowo
+    private String street;
+
     private String zipCode;
 
-    @NotNull
-    @Column(name = "pick_up_date")
     private LocalDate pickUpDate;
 
-    @NotNull
-    @Column(name = "pick_up_time")
     private LocalTime pickUpTime;
 
     private String pickUpComment;
 
-//brak telefonu
+    private String phoneNumber;
+
     public Donation() {
     }
 
-    public Donation(Integer quantity, List<Category> categories, Institution institution,
-                    String city, String zipCode, LocalDate pickUpDate, LocalTime pickUpTime, String pickUpComment) {
+    public Donation(Integer quantity, List<Category> categories, Institution institution, String city, String street,
+                    String zipCode, LocalDate pickUpDate, LocalTime pickUpTime, String pickUpComment, String phoneNumber) {
         this.quantity = quantity;
         this.categories = categories;
         this.institution = institution;
         this.city = city;
+        this.street = street;
         this.zipCode = zipCode;
         this.pickUpDate = pickUpDate;
         this.pickUpTime = pickUpTime;
         this.pickUpComment = pickUpComment;
+        this.phoneNumber = phoneNumber;
     }
 
     public Long getId() {
@@ -101,6 +92,14 @@ public class Donation {
         this.city = city;
     }
 
+    public String getStreet() {
+        return street;
+    }
+
+    public void setStreet(String street) {
+        this.street = street;
+    }
+
     public String getZipCode() {
         return zipCode;
     }
@@ -131,5 +130,13 @@ public class Donation {
 
     public void setPickUpComment(String pickUpComment) {
         this.pickUpComment = pickUpComment;
+    }
+
+    public String getPhoneNumber() {
+        return phoneNumber;
+    }
+
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
     }
 }
