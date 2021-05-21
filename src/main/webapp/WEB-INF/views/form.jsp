@@ -57,7 +57,7 @@
 
             <div class="form-group form-group--inline">
               <label>
-                <form:input path="quantity"/>
+                <form:input path="quantity" id="bags" name="bags"/>
                 <form:errors path="quantity" cssClass="error"/>
 <%--                <input type="number" name="bags" step="1" min="1" />--%>
               </label>
@@ -171,7 +171,7 @@
                       >4 worki ubrań w dobrym stanie dla dzieci</span
                     >
                   </li>
-
+                    <br>
                   <li>
                     <span class="icon icon-hand"></span>
                     <span class="summary--text"

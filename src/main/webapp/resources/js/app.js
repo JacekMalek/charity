@@ -164,6 +164,32 @@ document.addEventListener("DOMContentLoaded", function() {
       this.$step.parentElement.hidden = this.currentStep >= 5;
 
       // TODO: get data from inputs and show them in summary
+
+      let categoriesForm = this.$form.querySelectorAll("[name='categories']:checked");
+      let categoriesAll = "";
+      categoriesForm.forEach(category => {
+        categoriesAll += "\n " + category.nextElementSibling.nextElementSibling.nextElementSibling.innerHTML.trimStart(4).trimEnd(4);
+      });
+
+      let institutionForm = this.$form.querySelector("input[name='institution']:checked");
+
+      let summaryText = this.$form.getElementsByClassName("summary--text");
+
+      summaryText[0].innerText =
+          "Ilość worków: " + this.$form.querySelector("[name='quantity']").value + "\n" + "\n"
+          + " Zawartość worków: "
+          + categoriesAll;
+
+      summaryText[1].innerText = institutionForm.nextElementSibling.nextElementSibling.innerText;
+
+      let deliveryColumn = this.$form.querySelectorAll(".summary .form-section--column li");
+      deliveryColumn[0].innerText = this.$form.querySelector("[name='street']").value;
+      deliveryColumn[1].innerText = this.$form.querySelector("[name='city']").value;
+      deliveryColumn[2].innerText = this.$form.querySelector("[name='zipCode']").value;
+      deliveryColumn[3].innerText = this.$form.querySelector("[name='phoneNumber']").value;
+      deliveryColumn[4].innerText = this.$form.querySelector("[name='pickUpDate']").value;
+      deliveryColumn[5].innerText = this.$form.querySelector("[name='pickUpTime']").value;
+      deliveryColumn[6].innerText = this.$form.querySelector("[name='pickUpComment']").value;
     }
 
   }

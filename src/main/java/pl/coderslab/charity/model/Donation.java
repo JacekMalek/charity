@@ -4,10 +4,7 @@ import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.format.annotation.NumberFormat;
 
 import javax.persistence.*;
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Pattern;
-import javax.validation.constraints.Size;
+import javax.validation.constraints.*;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.List;
@@ -20,30 +17,33 @@ public class Donation {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @NotNull
+    @NotNull(message = "Ilość worków musi być większa od 0")
+    @Min(value = 1, message = "Ilość worków musi być większa od 0")
     private Integer quantity;
 
     @ManyToMany
-    @NotNull
+    @NotNull(message = "Musi zostać wybrana minimum jedna kategoria")
     private List<Category> categories;
 
     @ManyToOne
-    @NotNull
+    @NotNull(message = "Musi zostać wybrana minimum jedna instytucja")
     private Institution institution;
 
-    @NotBlank
+    @NotBlank(message = "Nazwa nie może być pusta")
+    @Size(message = "Nazwa winna zwierać minimum 3 litery", min = 3)
     private String city;
 
-    @NotBlank
+    @NotBlank(message = "Nazwa nie może być pusta")
     @Size(message = "Nazwa winna zwierać minimum 3 litery", min = 3)
     private String street;
 
     @NotBlank
-    @Pattern(message = "Proszę podać prawidłowy kod pocztowy", regexp = "^[0-9]{2}-[0-9]{3}$")
+    @Pattern(message = "Proszę podać prawidłowy kod pocztowy w formacie XX-XXX", regexp = "^[0-9]{2}-[0-9]{3}$")
     //TODO  Do sprawdzenia czy działa prawidłowo
     private String zipCode;
 
     //TODO Do sprawdzenia format daty
+
     @NotNull
     @Column(name = "pick_up_date")
     @DateTimeFormat(pattern = "yyyy-MM-dd")
@@ -57,7 +57,7 @@ public class Donation {
 
     //Zapytać czy jest dobrze
     @NumberFormat(style = NumberFormat.Style.NUMBER)
-    @NotBlank
+    @NotBlank(message = "Nazwa nie może być pusta")
     @Pattern(message = "Proszę podać prawidłowy numer telefonu", regexp = "[0-9]{9}")
     private String phoneNumber;
 

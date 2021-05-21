@@ -18,25 +18,26 @@ public class DonationDto {
     private Long id;
 
     @NotNull(message = "Ilość worków musi być większa od 0")
+    @Min(value = 1, message = "Ilość worków musi być większa od 0")
     private Integer quantity;
 
     @ManyToMany
-    @NotNull
+    @NotNull(message = "Musi zostać wybrana minimum jedna kategoria")
     private List<Category> categories;
 
     @ManyToOne
-    @NotNull
+    @NotNull(message = "Musi zostać wybrana minimum jedna instytucja")
     private Institution institution;
 
-    @NotBlank
+    @NotBlank(message = "Nazwa nie może być pusta")
     @Size(message = "Nazwa winna zwierać minimum 3 litery", min = 3)
     private String city;
 
-    @NotBlank
+    @NotBlank(message = "Nazwa nie może być pusta")
+    @Size(message = "Nazwa winna zwierać minimum 3 litery", min = 3)
     private String street;
 
-    @NotBlank
-    @Pattern(message = "Proszę podać prawidłowy kod pocztowy", regexp = "^[0-9]{2}-[0-9]{3}$")
+    @Pattern(message = "Proszę podać prawidłowy kod pocztowy w formacie XX-XXX", regexp = "^[0-9]{2}-[0-9]{3}$")
     //TODO  Do sprawdzenia czy działa prawidłowo
     private String zipCode;
 
@@ -50,7 +51,7 @@ public class DonationDto {
 
 //Zapytać czy jest dobrze
     @NumberFormat(style = NumberFormat.Style.NUMBER)
-    @NotBlank
+    @NotBlank(message = "Nazwa nie może być pusta")
     @Pattern(message = "Proszę podać prawidłowy numer telefonu", regexp = "[0-9]{9}")
     private String phoneNumber;
     //TODO Sprawdzić walidację numeru telefonu
