@@ -1,5 +1,6 @@
 package pl.coderslab.charity.controller;
 
+import org.springframework.security.access.annotation.Secured;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -17,6 +18,7 @@ import javax.validation.Valid;
 import java.util.List;
 
 @Controller
+@Secured({"ROLE_USER", "ROLE_ADMIN"})
 public class DonationController {
 
     private final CategoryServiceImpl categoryServiceImpl;
