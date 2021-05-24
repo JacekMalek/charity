@@ -18,8 +18,14 @@
 <header class="header--main-page">
     <nav class="container container--70">
         <ul class="nav--actions">
-            <li><a href="/login" class="btn btn--small btn--without-border">Zaloguj</a></li>
-            <li><a href="/register" class="btn btn--small btn--highlighted">Załóż konto</a></li>
+            <sec:authorize access="isAnonymous()">
+                <form action="<c:url value="/logout"/>" method="post">
+                    <li><a href="/login" class="btn btn--small btn--without-border">Zaloguj</a></li>
+                    <li><a href="/register" class="btn btn--small btn--highlighted">Załóż konto</a></li>
+                    <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+                </form>
+            </sec:authorize>
+
             <li>
                 <sec:authorize access="isAuthenticated()">
                 <form action="<c:url value="/logout"/>" method="post">
@@ -28,6 +34,16 @@
                 </form>
                 </sec:authorize>
             </li>
+
+<%--To jeszcze nie działa, wywala 500--%>
+<%--            <li>--%>
+
+<%--                <sec:authorize access="isAuthenticated()">--%>
+<%--                    <p>Zalogowany jako: <sec:authentication property="username"/></p>--%>
+<%--                    <p>Posiada role: <sec:authentication property="authorities"/></p>--%>
+<%--                </sec:authorize>--%>
+
+<%--            </li>--%>
         </ul>
 
         <ul>
