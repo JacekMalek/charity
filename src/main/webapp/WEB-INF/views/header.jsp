@@ -29,15 +29,14 @@
             <sec:authorize access="isAuthenticated()">
 
                 <li class="logged-user">
-                   Witaj <sec:authentication property="authorities"/>
-                        <%--            <p>Zalogowany jako: <sec:authentication property="usernameame"/></p>--%>
-                        <%--            <p>Posiada role: <sec:authentication property="authorities"/></p>--%>
+                 Witaj: <sec:authentication property="name"/>
+                    <sec:authorize access="hasRole('ADMIN')">(Admin)</sec:authorize>
                     <ul class="dropdown">
                         <li><a href="#">Profil</a></li>
                         <li><a href="#">Moje zbiórki</a></li>
                         <li>
                             <form action="<c:url value="/logout"/>" method="post">
-                                <input class="btn btn--small btn--without-border" type="submit" value="Wyloguj">
+                                <input class="btn btn--small btn--without-border" type="submit" value="Wyloguj"/>
                                 <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
                             </form>
                         </li>

@@ -1,14 +1,13 @@
 package pl.coderslab.charity.controller;
 
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import pl.coderslab.charity.Dto.InstitutionDto;
-import pl.coderslab.charity.service.DonationService;
-import pl.coderslab.charity.service.DonationServiceImpl;
-import pl.coderslab.charity.service.InstitutionService;
-import pl.coderslab.charity.service.InstitutionServiceImpl;
+import pl.coderslab.charity.model.User;
+import pl.coderslab.charity.service.*;
 
 import java.util.List;
 
@@ -29,12 +28,11 @@ public class HomeController {
         this.donationService = donationService;
     }
 
-
     @GetMapping("/")
     public String homeAction(Model model){
         //TODO zapytać o wstrzykiwanie
-//        List<InstitutionDto> institutions = institutionServiceImpl.getFirstFour();
 
+//        List<InstitutionDto> institutions = institutionServiceImpl.getFirstFour();
         List<InstitutionDto> institutions = institutionService.getFirstFour();
         Long numberOfGifts = donationServiceImpl.numberOfGifts();
         //Integer numberOfBags = donationServiceImpl.numberOfBags();
@@ -44,9 +42,4 @@ public class HomeController {
         model.addAttribute("numberOfBags", numberOfBags);
         return "index";
     }
-
-
-
-
-
 }
