@@ -6,6 +6,7 @@
 
 <%@include file="header.jsp" %>
 
+
 <section class="stats">
     <div class="container container--85">
         <div class="stats--item">
@@ -51,7 +52,7 @@
         </div>
     </div>
 
-    <a href="/register" class="btn btn--large">Załóż konto</a>
+    <a href="/user/register" class="btn btn--large">Załóż konto</a>
 </section>
 
 <section class="about-us">
