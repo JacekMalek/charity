@@ -33,6 +33,6 @@ public class UserController {
             return "register";
         }
         userService.saveUser(user);
-        return "index";
+        return "redirect:/";
     }
 }

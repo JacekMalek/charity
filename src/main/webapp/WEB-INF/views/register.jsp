@@ -11,13 +11,11 @@
 
     <form:form method="post" modelAttribute="user">
         <div class="form-group">
-<%--            <input type="email" name="email" placeholder="Email"/>--%>
-            <form:input path="username" placeholder="Email"/>
+            <form:input path="username" placeholder="Email" type="email"/>
             <form:errors path="username" cssClass="error"/>
         </div>
         <div class="form-group">
-<%--            <input type="password" name="password" placeholder="Hasło"/>--%>
-            <form:input path="password" placeholder="Hasło"/>
+            <form:input path="password" placeholder="Hasło" type="password"/>
             <form:errors path="password" cssClass="error"/>
         </div>
         <div class="form-group">
