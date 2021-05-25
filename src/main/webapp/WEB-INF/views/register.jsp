@@ -2,19 +2,27 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 
 <%@include file="header.jsp" %>
 
 <section class="login-page">
     <h2>Załóż konto</h2>
-    <form>
+
+    <form:form method="post" modelAttribute="user">
         <div class="form-group">
-            <input type="email" name="email" placeholder="Email"/>
+<%--            <input type="email" name="email" placeholder="Email"/>--%>
+            <form:input path="username" placeholder="Email"/>
+            <form:errors path="username" cssClass="error"/>
         </div>
         <div class="form-group">
-            <input type="password" name="password" placeholder="Hasło"/>
+<%--            <input type="password" name="password" placeholder="Hasło"/>--%>
+            <form:input path="password" placeholder="Hasło"/>
+            <form:errors path="password" cssClass="error"/>
         </div>
         <div class="form-group">
+<%--            <form:input path="enabled"/>--%>
+<%--            <form:input path="roles"/>--%>
             <input type="password" name="password2" placeholder="Powtórz hasło"/>
         </div>
 
@@ -22,7 +30,9 @@
             <a href="/login" class="btn btn--without-border">Zaloguj się</a>
             <button class="btn" type="submit">Załóż konto</button>
         </div>
-    </form>
+
+    </form:form>
+
 </section>
 
 <%@include file="footer.jsp" %>
