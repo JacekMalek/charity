@@ -8,7 +8,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import pl.coderslab.charity.dto.UserDto;
 import pl.coderslab.charity.service.UserService;
-import pl.coderslab.charity.service.UserServiceImpl;
 
 import javax.validation.Valid;
 
@@ -32,11 +31,11 @@ public class UserController {
     public String createUser(@Valid UserDto userDto, BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {
             return "register";
-        } else if (!userService.passwordPass(userDto)) {
-            bindingResult.rejectValue("secondPassword", "secondPassword", "Hasła nie są takie same");
+        } else if (!userService.checkPassword(userDto)) {
+            bindingResult.rejectValue("password", "error.password");
             return "register";
         } else if(userService.userExist(userDto)){
-            bindingResult.rejectValue("username", "Po co to jest?", "Użytkownik o takiej nazwie już istnieje");
+            bindingResult.rejectValue("username", "error.user");
             return "register";
         }
         userService.saveUser(userDto);

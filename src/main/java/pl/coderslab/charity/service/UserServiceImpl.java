@@ -42,7 +42,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public boolean passwordPass(UserDto userDto){
+    public boolean checkPassword(UserDto userDto){
         return userDto.getPassword().equals(userDto.getSecondPassword());
     }
 

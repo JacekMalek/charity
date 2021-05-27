@@ -11,12 +11,14 @@
 <%--        <form:form method="post" modelAttribute="email" class="form--contact">--%>
 <%--            <div class="form-group form-group--50"><form:input path="name" type="text" name="name" placeholder="Imię"/></div>--%>
 <%--            <div class="form-group form-group--50"><form:input path="surname" type="text" name="surname" placeholder="Nazwisko"/></div>--%>
-
+<%----%>
 <%--            <div class="form-group"><form:textarea path="message" name="message" placeholder="Wiadomość" rows="1"></form:textarea></div>--%>
 
-<%--            <button class="btn" type="submit">Wyślij</button>--%>
+            <button class="btn" type="submit">Wyślij</button>
 <%--        </form:form>--%>
     </div>
+
+
     <div class="bottom-line">
         <span class="bottom-line--copy">Copyright &copy; 2021</span>
         <div class="bottom-line--icons">

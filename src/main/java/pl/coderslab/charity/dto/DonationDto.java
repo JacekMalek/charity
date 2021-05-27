@@ -51,6 +51,10 @@ public class DonationDto {
 
     private String pickUpComment;
 
+    private Long user;
+
+
+
     public DonationDto() {
     }
 
@@ -141,5 +145,13 @@ public class DonationDto {
 
     public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
+    }
+
+    public Long getUser() {
+        return user;
+    }
+
+    public void setUser(Long user) {
+        this.user = user;
     }
 }

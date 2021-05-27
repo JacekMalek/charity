@@ -1,6 +1,7 @@
 package pl.coderslab.charity.controller;
 
 import org.springframework.security.access.annotation.Secured;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -11,6 +12,7 @@ import pl.coderslab.charity.dto.CategoryDto;
 import pl.coderslab.charity.dto.DonationDto;
 import pl.coderslab.charity.dto.InstitutionDto;
 import pl.coderslab.charity.service.CategoryServiceImpl;
+import pl.coderslab.charity.service.CurrentUser;
 import pl.coderslab.charity.service.DonationServiceImpl;
 import pl.coderslab.charity.service.InstitutionServiceImpl;
 
@@ -39,10 +41,12 @@ public class DonationController {
     }
 
     @PostMapping("/form")
-    public String form(@Valid DonationDto donationDto, BindingResult bindingResult){
+    public String form(@Valid DonationDto donationDto, BindingResult bindingResult,
+                       @AuthenticationPrincipal CurrentUser currentUser){
         if(bindingResult.hasErrors()){
             return "form";
         }
+        //Dokończyc
         donationServiceImpl.add(donationDto);
         return "redirect:form-confirmation";
     }

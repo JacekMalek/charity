@@ -1,11 +1,13 @@
 package pl.coderslab.charity.controller;
 
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import pl.coderslab.charity.dto.InstitutionDto;
+import pl.coderslab.charity.model.User;
 import pl.coderslab.charity.service.*;
 
 import java.util.List;
@@ -37,4 +39,10 @@ public class HomeController {
         return "index";
     }
 
+    @GetMapping("/admin")
+    @ResponseBody
+    public String admin(@AuthenticationPrincipal CurrentUser customUser) {
+        User entityUser = customUser.getUser();
+        return "Hello " + entityUser.getUsername() + " " + entityUser.getId() + " " + entityUser.getPassword();
+    }
 }

@@ -6,6 +6,7 @@ import pl.coderslab.charity.model.Donation;
 import pl.coderslab.charity.repository.CategoryRepository;
 import pl.coderslab.charity.repository.DonationRepository;
 import pl.coderslab.charity.repository.InstitutionRepository;
+import pl.coderslab.charity.repository.UserRepository;
 
 import javax.persistence.EntityNotFoundException;
 import java.util.List;
@@ -18,10 +19,13 @@ public class DonationServiceImpl implements DonationService<DonationDto> {
     private final InstitutionRepository institutionRepository;
     private final CategoryRepository categoryRepository;
 
-    public DonationServiceImpl(DonationRepository donationRepository, InstitutionRepository institutionRepository, CategoryRepository categoryRepository) {
+
+    public DonationServiceImpl(DonationRepository donationRepository, InstitutionRepository institutionRepository,
+                               CategoryRepository categoryRepository) {
         this.donationRepository = donationRepository;
         this.institutionRepository = institutionRepository;
         this.categoryRepository = categoryRepository;
+
     }
 
     @Override
@@ -32,10 +36,9 @@ public class DonationServiceImpl implements DonationService<DonationDto> {
     @Override
     public void add(DonationDto donationDto) {
         Donation donation = new Donation();
-        //DonationMapper.donationMapper(donationDto, donation); // donation.setCategories(donationDto.getCategories());
         donation.setQuantity(donationDto.getQuantity());
         donation.setInstitution(institutionRepository.findById(donationDto.getInstitution()).orElseThrow(EntityNotFoundException::new));
-        donation.setCategories(categoryRepository.findAllById(donationDto.getCategories()));
+        donation.setCategories(categoryRepository.findAllById(donationDto.getCategories()));//zmienić na serwisy
         donation.setStreet(donationDto.getStreet());
         donation.setCity(donationDto.getCity());
         donation.setZipCode(donationDto.getZipCode());
@@ -43,6 +46,7 @@ public class DonationServiceImpl implements DonationService<DonationDto> {
         donation.setPickUpDate(donationDto.getPickUpDate());
         donation.setPickUpTime(donationDto.getPickUpTime());
         donation.setPickUpComment(donationDto.getPickUpComment());
+        //donation.setUser(userRepository.findById(donationDto.getUser()).orElseThrow(EntityNotFoundException::new));
         donationRepository.save(donation);
     }
 

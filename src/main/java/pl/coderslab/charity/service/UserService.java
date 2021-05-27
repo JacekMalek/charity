@@ -9,7 +9,7 @@ public interface UserService {
 
     void saveUser(UserDto userDto);
 
-    boolean passwordPass(UserDto userDto);
+    boolean checkPassword(UserDto userDto);
 
     boolean userExist(UserDto userDto);
 }

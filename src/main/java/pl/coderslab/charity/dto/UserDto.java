@@ -16,8 +16,7 @@ public class UserDto {
     @Email
     private String username;
 
-    @Pattern(message = "Hasło musi składać się z minimum 8 znaków,przynajmniej jednej dużej litery, jednej małej, numeru i znaku specjalnego",
-           regexp = "^(?=.*[A-Za-z])(?=.*\\d)(?=.*[$@$!%*#?&])[A-Za-z\\d$@$!%*#?&]{8,}$")
+    @Pattern(regexp = "^(?=.*[A-Za-z])(?=.*\\d)(?=.*[$@$!%*#?&])[A-Za-z\\d$@$!%*#?&]{8,}$")
     private String password;
 
     private String secondPassword;
