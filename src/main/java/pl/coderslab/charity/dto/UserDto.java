@@ -1,8 +1,10 @@
-package pl.coderslab.charity.Dto;
+package pl.coderslab.charity.dto;
 
 import pl.coderslab.charity.model.Role;
 
 import javax.persistence.*;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.Pattern;
 import java.util.Set;
 
 public class UserDto {
@@ -11,9 +13,14 @@ public class UserDto {
     private Long id;
 
     @Column(nullable = false, unique = true, length = 60)
+    @Email
     private String username;
 
+    @Pattern(message = "Hasło musi składać się z minimum 8 znaków,przynajmniej jednej dużej litery, jednej małej, numeru i znaku specjalnego",
+           regexp = "^(?=.*[A-Za-z])(?=.*\\d)(?=.*[$@$!%*#?&])[A-Za-z\\d$@$!%*#?&]{8,}$")
     private String password;
+
+    private String secondPassword;
 
     private int enabled;
 
@@ -24,13 +31,6 @@ public class UserDto {
     public UserDto() {
     }
 
-    public UserDto(Long id, String username, String password, int enabled, Set<Role> roles) {
-        this.id = id;
-        this.username = username;
-        this.password = password;
-        this.enabled = enabled;
-        this.roles = roles;
-    }
 
     public Long getId() {
         return id;
@@ -70,5 +70,13 @@ public class UserDto {
 
     public void setRoles(Set<Role> roles) {
         this.roles = roles;
+    }
+
+    public String getSecondPassword() {
+        return secondPassword;
+    }
+
+    public void setSecondPassword(String secondPassword) {
+        this.secondPassword = secondPassword;
     }
 }

@@ -1,10 +1,6 @@
-package pl.coderslab.charity.Dto;
+package pl.coderslab.charity.dto;
 
 import org.springframework.format.annotation.DateTimeFormat;
-import org.springframework.format.annotation.NumberFormat;
-import pl.coderslab.charity.model.Category;
-import pl.coderslab.charity.model.Institution;
-
 import javax.persistence.*;
 import javax.validation.constraints.*;
 import java.time.LocalDate;
@@ -23,11 +19,11 @@ public class DonationDto {
 
     @ManyToMany
     @NotEmpty(message = "Musi zostać wybrana minimum jedna kategoria")
-    private List<Category> categories;
+    private List<Long> categories;
 
     @ManyToOne
     @NotNull(message = "Musi zostać wybrana minimum jedna instytucja")
-    private Institution institution;
+    private Long institution;
 
     @NotBlank(message = "Nazwa nie może być pusta")
     @Size(message = "Nazwa winna zwierać minimum 3 litery", min = 3)
@@ -41,12 +37,12 @@ public class DonationDto {
     @NotBlank
     private String zipCode;
 
-    @NotNull
+    @NotNull(message = "Pole nie może być puste")
     @DateTimeFormat(pattern = "yyyy-MM-dd")
-    @Future
+    @Future(message = "Data musi być z przyszłości")
     private LocalDate pickUpDate;
 
-    @NotNull
+    @NotNull(message = "Podaj godzinę")
     private LocalTime pickUpTime;
 
     @NotBlank(message = "Nazwa nie może być pusta")
@@ -58,20 +54,6 @@ public class DonationDto {
     public DonationDto() {
     }
 
-    public DonationDto(Long id, Integer quantity, List<Category> categories, Institution institution, String city, String street,
-                       String zipCode, LocalDate pickUpDate, LocalTime pickUpTime, String pickUpComment, String phoneNumber) {
-        this.id = id;
-        this.quantity = quantity;
-        this.categories = categories;
-        this.institution = institution;
-        this.city = city;
-        this.street = street;
-        this.zipCode = zipCode;
-        this.pickUpDate = pickUpDate;
-        this.pickUpTime = pickUpTime;
-        this.pickUpComment = pickUpComment;
-        this.phoneNumber = phoneNumber;
-    }
 
     public Long getId() {
         return id;
@@ -89,19 +71,19 @@ public class DonationDto {
         this.quantity = quantity;
     }
 
-    public List<Category> getCategories() {
+    public List<Long> getCategories() {
         return categories;
     }
 
-    public void setCategories(List<Category> categories) {
+    public void setCategories(List<Long> categories) {
         this.categories = categories;
     }
 
-    public Institution getInstitution() {
+    public Long getInstitution() {
         return institution;
     }
 
-    public void setInstitution(Institution institution) {
+    public void setInstitution(Long institution) {
         this.institution = institution;
     }
 

@@ -1,11 +1,13 @@
 package pl.coderslab.charity.service;
 
 import org.springframework.stereotype.Service;
-import pl.coderslab.charity.Dto.DonationDto;
-import pl.coderslab.charity.mappers.DonationMapper;
+import pl.coderslab.charity.dto.DonationDto;
 import pl.coderslab.charity.model.Donation;
+import pl.coderslab.charity.repository.CategoryRepository;
 import pl.coderslab.charity.repository.DonationRepository;
+import pl.coderslab.charity.repository.InstitutionRepository;
 
+import javax.persistence.EntityNotFoundException;
 import java.util.List;
 import java.util.Optional;
 
@@ -13,9 +15,13 @@ import java.util.Optional;
 public class DonationServiceImpl implements DonationService<DonationDto> {
 
     private final DonationRepository donationRepository;
+    private final InstitutionRepository institutionRepository;
+    private final CategoryRepository categoryRepository;
 
-    public DonationServiceImpl(DonationRepository donationRepository) {
+    public DonationServiceImpl(DonationRepository donationRepository, InstitutionRepository institutionRepository, CategoryRepository categoryRepository) {
         this.donationRepository = donationRepository;
+        this.institutionRepository = institutionRepository;
+        this.categoryRepository = categoryRepository;
     }
 
     @Override
@@ -26,10 +32,19 @@ public class DonationServiceImpl implements DonationService<DonationDto> {
     @Override
     public void add(DonationDto donationDto) {
         Donation donation = new Donation();
-        DonationMapper.donationMapper(donationDto, donation);
+        //DonationMapper.donationMapper(donationDto, donation); // donation.setCategories(donationDto.getCategories());
+        donation.setQuantity(donationDto.getQuantity());
+        donation.setInstitution(institutionRepository.findById(donationDto.getInstitution()).orElseThrow(EntityNotFoundException::new));
+        donation.setCategories(categoryRepository.findAllById(donationDto.getCategories()));
+        donation.setStreet(donationDto.getStreet());
+        donation.setCity(donationDto.getCity());
+        donation.setZipCode(donationDto.getZipCode());
+        donation.setPhoneNumber(donationDto.getPhoneNumber());
+        donation.setPickUpDate(donationDto.getPickUpDate());
+        donation.setPickUpTime(donationDto.getPickUpTime());
+        donation.setPickUpComment(donationDto.getPickUpComment());
         donationRepository.save(donation);
     }
-
 
 
     @Override

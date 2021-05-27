@@ -1,4 +1,4 @@
-package pl.coderslab.charity.Dto;
+package pl.coderslab.charity.dto;
 
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;

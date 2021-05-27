@@ -9,7 +9,7 @@
 <section class="login-page">
     <h2>Załóż konto</h2>
 
-    <form:form method="post" modelAttribute="user">
+    <form:form method="post" modelAttribute="userDto">
         <div class="form-group">
             <form:input path="username" placeholder="Email" type="email"/>
             <form:errors path="username" cssClass="error"/>
@@ -21,7 +21,8 @@
         <div class="form-group">
 <%--            <form:input path="enabled"/>--%>
 <%--            <form:input path="roles"/>--%>
-            <input type="password" name="password2" placeholder="Powtórz hasło"/>
+            <form:input path="secondPassword" type="password" name="password2" placeholder="Powtórz hasło"/>
+            <form:errors path="secondPassword" cssClass="error"/>
         </div>
 
         <div class="form-group form-group--buttons">

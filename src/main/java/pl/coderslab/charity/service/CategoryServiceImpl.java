@@ -1,7 +1,7 @@
 package pl.coderslab.charity.service;
 
 import org.springframework.stereotype.Service;
-import pl.coderslab.charity.Dto.CategoryDto;
+import pl.coderslab.charity.dto.CategoryDto;
 import pl.coderslab.charity.repository.CategoryRepository;
 
 import java.util.List;
