@@ -11,10 +11,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import pl.coderslab.charity.dto.CategoryDto;
 import pl.coderslab.charity.dto.DonationDto;
 import pl.coderslab.charity.dto.InstitutionDto;
-import pl.coderslab.charity.service.CategoryServiceImpl;
-import pl.coderslab.charity.service.CurrentUser;
-import pl.coderslab.charity.service.DonationServiceImpl;
-import pl.coderslab.charity.service.InstitutionServiceImpl;
+import pl.coderslab.charity.service.*;
 
 import javax.validation.Valid;
 import java.util.List;
@@ -23,47 +20,48 @@ import java.util.List;
 @Secured({"ROLE_USER", "ROLE_ADMIN"})
 public class DonationController {
 
-    private final CategoryServiceImpl categoryServiceImpl;
-    private final InstitutionServiceImpl institutionServiceImpl;
-    private final DonationServiceImpl donationServiceImpl;
+    private final CategoryService categoryService;
+    private final InstitutionService institutionService;
+    private final DonationService donationService;
 
-    public DonationController(CategoryServiceImpl categoryServiceImpl,
-                              InstitutionServiceImpl institutionServiceImpl, DonationServiceImpl donationServiceImpl) {
-        this.categoryServiceImpl = categoryServiceImpl;
-        this.institutionServiceImpl = institutionServiceImpl;
-        this.donationServiceImpl = donationServiceImpl;
+    public DonationController(CategoryService categoryService, InstitutionService institutionService, DonationService donationService) {
+        this.categoryService = categoryService;
+        this.institutionService = institutionService;
+        this.donationService = donationService;
     }
 
+
     @GetMapping("/form")
-    public String form(Model model){
+    public String form(Model model) {
         model.addAttribute("donationDto", new DonationDto());
         return "form";
     }
 
     @PostMapping("/form")
     public String form(@Valid DonationDto donationDto, BindingResult bindingResult,
-                       @AuthenticationPrincipal CurrentUser currentUser){
-        if(bindingResult.hasErrors()){
+                       @AuthenticationPrincipal CurrentUser currentUser ) {
+        if (bindingResult.hasErrors()) {
             return "form";
         }
-        //Dokończyc
-        donationServiceImpl.add(donationDto);
+       // model.addAttribute("user", currentUser.getUser());
+        System.out.println(currentUser.getUser());
+        donationService.add(donationDto);
         return "redirect:form-confirmation";
     }
 
     @GetMapping("/form-confirmation")
-    public String confirmation(){
+    public String confirmation() {
         return "/form-confirmation";
     }
 
     @ModelAttribute("formCategories")
-    public List<CategoryDto> categories(){
-        return categoryServiceImpl.getAll();
+    public List<CategoryDto> categories() {
+        return categoryService.getAll();
     }
 
     @ModelAttribute("formInstitutions")
-    public List<InstitutionDto> institutions(){
-        return institutionServiceImpl.getAll();
+    public List<InstitutionDto> institutions() {
+        return institutionService.getAll();
     }
 
 }

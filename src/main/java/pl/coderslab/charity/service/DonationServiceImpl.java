@@ -18,14 +18,15 @@ public class DonationServiceImpl implements DonationService<DonationDto> {
     private final DonationRepository donationRepository;
     private final InstitutionRepository institutionRepository;
     private final CategoryRepository categoryRepository;
+    private final UserRepository userRepository;
 
 
     public DonationServiceImpl(DonationRepository donationRepository, InstitutionRepository institutionRepository,
-                               CategoryRepository categoryRepository) {
+                               CategoryRepository categoryRepository, UserRepository userRepository) {
         this.donationRepository = donationRepository;
         this.institutionRepository = institutionRepository;
         this.categoryRepository = categoryRepository;
-
+        this.userRepository = userRepository;
     }
 
     @Override
@@ -46,7 +47,7 @@ public class DonationServiceImpl implements DonationService<DonationDto> {
         donation.setPickUpDate(donationDto.getPickUpDate());
         donation.setPickUpTime(donationDto.getPickUpTime());
         donation.setPickUpComment(donationDto.getPickUpComment());
-        //donation.setUser(userRepository.findById(donationDto.getUser()).orElseThrow(EntityNotFoundException::new));
+//        donation.getUser(userRepository.findByUsername(donationDto.getUser()));
         donationRepository.save(donation);
     }
 

@@ -12,4 +12,5 @@ public interface UserService {
     boolean checkPassword(UserDto userDto);
 
     boolean userExist(UserDto userDto);
+
 }

@@ -29,7 +29,7 @@ public class HomeController {
     }
 
     @GetMapping("/")
-    public String homeAction(Model model){
+    public String homeAction(Model model) {
         List<InstitutionDto> institutions = institutionService.getFirstFour();
         Long numberOfGifts = donationService.numberOfGifts();
         Integer numberOfBags = donationService.numberOfBags();

@@ -34,7 +34,6 @@ public class DonationDto {
     private String street;
 
     @Pattern(message = "Proszę podać prawidłowy kod pocztowy w formacie XX-XXX", regexp = "^[0-9]{2}-[0-9]{3}$")
-    @NotBlank
     private String zipCode;
 
     @NotNull(message = "Pole nie może być puste")

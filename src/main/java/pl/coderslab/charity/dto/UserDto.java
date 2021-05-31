@@ -1,7 +1,6 @@
 package pl.coderslab.charity.dto;
 
 import pl.coderslab.charity.model.Role;
-
 import javax.persistence.*;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.Pattern;
@@ -16,7 +15,8 @@ public class UserDto {
     @Email
     private String username;
 
-    @Pattern(regexp = "^(?=.*[A-Za-z])(?=.*\\d)(?=.*[$@$!%*#?&])[A-Za-z\\d$@$!%*#?&]{8,}$")
+    @Pattern(message = "Hasło musi składać się z minimum 8 znaków,przynajmniej jednej dużej litery, jednej małej, numeru i znaku specjalnego",
+            regexp = "^(?=.*[A-Za-z])(?=.*\\d)(?=.*[$@$!%*#?&])[A-Za-z\\d$@$!%*#?&]{8,}$")
     private String password;
 
     private String secondPassword;

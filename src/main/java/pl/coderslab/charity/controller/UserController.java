@@ -34,7 +34,7 @@ public class UserController {
         } else if (!userService.checkPassword(userDto)) {
             bindingResult.rejectValue("password", "error.password");
             return "register";
-        } else if(userService.userExist(userDto)){
+        } else if (userService.userExist(userDto)) {
             bindingResult.rejectValue("username", "error.user");
             return "register";
         }
