@@ -6,7 +6,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import pl.coderslab.charity.model.User;
+import pl.coderslab.charity.dto.UserDto;
 import pl.coderslab.charity.service.UserService;
 
 import javax.validation.Valid;
@@ -23,16 +23,22 @@ public class UserController {
 
     @GetMapping("/register")
     public String createUser(Model model) {
-        model.addAttribute("user", new User());
+        model.addAttribute("userDto", new UserDto());
         return "register";
     }
 
     @PostMapping("/register")
-    public String createUser(@Valid User user, BindingResult bindingResult){
-        if(bindingResult.hasErrors()){
+    public String createUser(@Valid UserDto userDto, BindingResult bindingResult) {
+        if (bindingResult.hasErrors()) {
+            return "register";
+        } else if (!userService.checkPassword(userDto)) {
+            bindingResult.rejectValue("password", "error.password");
+            return "register";
+        } else if (userService.userExist(userDto)) {
+            bindingResult.rejectValue("username", "error.user");
             return "register";
         }
-        userService.saveUser(user);
+        userService.saveUser(userDto);
         return "redirect:/";
     }
 }

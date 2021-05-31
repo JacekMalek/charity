@@ -12,7 +12,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
     <title>Zacznij pomagać</title>
 
-    <link rel="stylesheet" href="<c:url value="/resources/css/style.css"/>"/>
+    <link rel="stylesheet" href="<c:url value="resources/css/style.css"/>"/>
 </head>
 <body>
 <header class="header--main-page">
@@ -29,8 +29,7 @@
             <sec:authorize access="isAuthenticated()">
 
                 <li class="logged-user">
-                 Witaj: <sec:authentication property="name"/>
-                    <sec:authorize access="hasRole('ADMIN')">(Admin)</sec:authorize>
+                    Witaj: <sec:authentication property="name"/>
                     <ul class="dropdown">
                         <li><a href="#">Profil</a></li>
                         <li><a href="#">Moje zbiórki</a></li>
@@ -52,16 +51,19 @@
             <li><a href="#" class="btn btn--without-border">O nas</a></li>
             <li><a href="#" class="btn btn--without-border">Fundacje i organizacje</a></li>
             <li><a href="/form" class="btn btn--without-border">Przekaż dary</a></li>
-            <li><a href="" class="btn btn--without-border">Kontakt</a></li>
+            <li><a href="#" class="btn btn--without-border">Kontakt</a></li>
         </ul>
     </nav>
-
     <div class="slogan container container--90">
-        <div class="slogan--item">
-            <h1>
-                Zacznij pomagać!<br/>
-                Oddaj niechciane rzeczy w zaufane ręce
-            </h1>
-        </div>
+        <h2>
+           Email został wysłany, postaramy się na niego
+            odpowiedzieć najszybciej jak tylko możemy.
+        </h2>
     </div>
+
+
 </header>
+
+
+<%@include file="footer.jsp"%>
+

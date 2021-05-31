@@ -35,21 +35,10 @@ public class Donation {
 
     private String phoneNumber;
 
-    public Donation() {
-    }
+    @ManyToOne
+    private User user;
 
-    public Donation(Integer quantity, List<Category> categories, Institution institution, String city, String street,
-                    String zipCode, LocalDate pickUpDate, LocalTime pickUpTime, String pickUpComment, String phoneNumber) {
-        this.quantity = quantity;
-        this.categories = categories;
-        this.institution = institution;
-        this.city = city;
-        this.street = street;
-        this.zipCode = zipCode;
-        this.pickUpDate = pickUpDate;
-        this.pickUpTime = pickUpTime;
-        this.pickUpComment = pickUpComment;
-        this.phoneNumber = phoneNumber;
+    public Donation() {
     }
 
     public Long getId() {
@@ -138,5 +127,13 @@ public class Donation {
 
     public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
     }
 }

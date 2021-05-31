@@ -2,7 +2,6 @@ package pl.coderslab.charity.security;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
@@ -15,16 +14,9 @@ import pl.coderslab.charity.service.SpringDataUserDetailsService;
 @EnableGlobalMethodSecurity(securedEnabled = true)  //Jeśli korzystamy z zabezpieczenia na poziomie metod
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
-//    @Override
-//    public void configure(AuthenticationManagerBuilder auth) throws Exception {
-//        auth.inMemoryAuthentication()
-//                .withUser("troll.cool@poczta.fm").password("{noop}motorola51").roles("USER")
-//                .and()
-//                .withUser("jac.malek@gmail.com").password("{noop}motorola51??").roles("ADMIN");
-//    }
+
 
     @Override
-
     protected void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests()
                 .antMatchers("/").permitAll()
