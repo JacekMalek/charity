@@ -12,15 +12,13 @@
         <div class="stats--item">
             <em><c:out value="${numberOfBags}"/></em>
             <h3>Oddanych worków</h3>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius est beatae, quod accusamus illum
-                tempora!</p>
+            <p>Do dnia dzisiejszego oddaliście już masę zabawek, ubrań, darów spożywczych </p>
         </div>
 
         <div class="stats--item">
             <em><c:out value="${numberOfGifts}"/></em>
             <h3>Przekazanych darów</h3>
-            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Laboriosam magnam, sint nihil cupiditate quas
-                quam.</p>
+            <p>Bardzo Wam wszystkim dziękujemy, licząc na dalsze wsparcie</p>
         </div>
 
     </div>
@@ -58,8 +56,7 @@
 <section class="about-us">
     <div class="about-us--text">
         <h2>O nas</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptas vitae animi rem pariatur incidunt libero
-            optio esse quisquam illo omnis.</p>
+        <p> Nasz serwis pomaga łączyć darczyńców  z potrzebującymi</p>
         <img src="<c:url value="resources/images/signature.svg"/>" class="about-us--text-signature" alt="Signature"/>
     </div>
     <div class="about-us--image"><img src="<c:url value="resources/images/about-us.jpg"/>" alt="People in circle"/>
