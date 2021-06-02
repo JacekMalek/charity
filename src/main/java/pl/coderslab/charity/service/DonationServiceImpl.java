@@ -1,8 +1,12 @@
 package pl.coderslab.charity.service;
 
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import pl.coderslab.charity.dto.DonationDto;
 import pl.coderslab.charity.model.Donation;
+import pl.coderslab.charity.model.User;
 import pl.coderslab.charity.repository.CategoryRepository;
 import pl.coderslab.charity.repository.DonationRepository;
 import pl.coderslab.charity.repository.InstitutionRepository;
@@ -36,10 +40,14 @@ public class DonationServiceImpl implements DonationService<DonationDto> {
 
     @Override
     public void add(DonationDto donationDto) {
+    }
+
+//    @Override
+    public void addUser(DonationDto donationDto, @AuthenticationPrincipal CurrentUser currentUser) {
         Donation donation = new Donation();
         donation.setQuantity(donationDto.getQuantity());
         donation.setInstitution(institutionRepository.findById(donationDto.getInstitution()).orElseThrow(EntityNotFoundException::new));
-        donation.setCategories(categoryRepository.findAllById(donationDto.getCategories()));//zmienić na serwisy
+        donation.setCategories(categoryRepository.findAllById(donationDto.getCategories()));
         donation.setStreet(donationDto.getStreet());
         donation.setCity(donationDto.getCity());
         donation.setZipCode(donationDto.getZipCode());
@@ -47,10 +55,9 @@ public class DonationServiceImpl implements DonationService<DonationDto> {
         donation.setPickUpDate(donationDto.getPickUpDate());
         donation.setPickUpTime(donationDto.getPickUpTime());
         donation.setPickUpComment(donationDto.getPickUpComment());
-//        donation.getUser(userRepository.findByUsername(donationDto.getUser()));
+        donation.setUser(currentUser.getUser());
         donationRepository.save(donation);
     }
-
 
     @Override
     public Optional<DonationDto> get(Long id) {

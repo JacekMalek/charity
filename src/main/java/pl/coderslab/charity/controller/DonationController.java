@@ -23,11 +23,13 @@ public class DonationController {
     private final CategoryService categoryService;
     private final InstitutionService institutionService;
     private final DonationService donationService;
+    private final DonationServiceImpl donationServiceImpl;
 
-    public DonationController(CategoryService categoryService, InstitutionService institutionService, DonationService donationService) {
+    public DonationController(CategoryService categoryService, InstitutionService institutionService, DonationService donationService, DonationServiceImpl donationServiceImpl) {
         this.categoryService = categoryService;
         this.institutionService = institutionService;
         this.donationService = donationService;
+        this.donationServiceImpl = donationServiceImpl;
     }
 
 
@@ -38,14 +40,11 @@ public class DonationController {
     }
 
     @PostMapping("/form")
-    public String form(@Valid DonationDto donationDto, BindingResult bindingResult,
-                       @AuthenticationPrincipal CurrentUser currentUser ) {
+    public String form(@Valid DonationDto donationDto, BindingResult bindingResult, @AuthenticationPrincipal CurrentUser currentUser) {
         if (bindingResult.hasErrors()) {
             return "form";
         }
-       // model.addAttribute("user", currentUser.getUser());
-        System.out.println(currentUser.getUser());
-        donationService.add(donationDto);
+        donationServiceImpl.addUser(donationDto, currentUser);
         return "redirect:form-confirmation";
     }
 
