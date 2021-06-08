@@ -6,6 +6,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+import pl.coderslab.charity.dto.EmailDto;
 import pl.coderslab.charity.dto.InstitutionDto;
 import pl.coderslab.charity.model.User;
 import pl.coderslab.charity.service.CurrentUser;
@@ -38,6 +39,7 @@ public class HomeController {
         model.addAttribute("institutions", institutions);
         model.addAttribute("numberOfGifts", numberOfGifts);
         model.addAttribute("numberOfBags", numberOfBags);
+        model.addAttribute("email", new EmailDto());
         return "index";
     }
 

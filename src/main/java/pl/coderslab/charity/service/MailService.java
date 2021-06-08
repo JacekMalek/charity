@@ -4,6 +4,7 @@ import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.stereotype.Service;
+import pl.coderslab.charity.dto.EmailDto;
 
 import javax.mail.MessagingException;
 import javax.mail.internet.MimeMessage;
@@ -38,14 +39,13 @@ public class MailService {
         this.javaMailSender = javaMailSender;
     }
 
-    public void sendSimpleEmail(String to, String subject, String content) throws MessagingException {
+    public void sendSimpleEmail(String to, String subject, String text) throws MessagingException {
         MimeMessage msg = javaMailSender.createMimeMessage();
         MimeMessageHelper helper = new MimeMessageHelper(msg, MimeMessageHelper.MULTIPART_MODE_MIXED_RELATED, StandardCharsets.UTF_8.name());
         helper.setTo(to);
         helper.setFrom("troll.cool@poczta.fm");
-
         helper.setSubject(subject);
-        helper.setText(content);
+        helper.setText(text);
 
         javaMailSender.send(msg);
     }
