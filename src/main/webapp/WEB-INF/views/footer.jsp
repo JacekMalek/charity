@@ -6,12 +6,12 @@
 
 <footer>
 
-        <div class="contact">
+        <div id="contact" class="contact">
             <h2>Skontaktuj się z nami</h2>
             <form:form method="post" modelAttribute="emailDto" action="/sendEmail" class="form--contact">
                 <div class="form-group form-group--50"><form:input path="name" type="text" name="name" placeholder="Imię"/></div>
                 <div class="form-group form-group--50"><form:input path="surname" type="text" name="surname" placeholder="Nazwisko"/></div>
-                <div class="form-group form-group--50"><form:input path="email" type="text" name="email" placeholder="Email"/></div>
+                <div class="form-group form-group--70"><form:input path="email" type="text" name="email" placeholder="Email"/></div>
                 <div class="form-group"><form:textarea path="message" name="message" placeholder="Wiadomość" rows="1"/></div>
                 <button class="btn" type="submit">Wyślij</button>
             </form:form>
