@@ -22,9 +22,11 @@ public class MailController {
 
 
     @PostMapping("/sendEmail")
-    public String sendEmail(@ModelAttribute EmailDto emailDto, @RequestParam String name, @RequestParam String surname, @RequestParam String message) throws MessagingException {
-        mailService.sendSimpleEmail("Jacek <jac.malek@gmail.com>",
-                "Zapytanie z Charity", "Imię: " + name + "\n" + "Nazwisko: " + surname + "\n" + "Treść wiadomości: " +  message);
+    public String sendEmail(@ModelAttribute EmailDto emailDto, @RequestParam String name,
+                            @RequestParam String surname, @RequestParam String email, @RequestParam String message) throws MessagingException {
+        mailService.sendSimpleEmail("CharityApp <jac.malek@gmail.com>",
+                "Zapytanie z Charity", "Imię: " + name + "\n" + "Nazwisko: " + surname + "\n" + "Email kontaktowy: "
+                        + email + "\n" + "Treść wiadomości: " +  message);
         log.info("Wysłano email");
         return "email-confirmation";
     }
