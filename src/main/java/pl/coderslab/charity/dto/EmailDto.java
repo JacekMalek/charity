@@ -2,6 +2,7 @@ package pl.coderslab.charity.dto;
 
 public class EmailDto {
 
+
     private String name;
 
     private String surname;
@@ -10,6 +11,8 @@ public class EmailDto {
 
     public EmailDto() {
     }
+
+
 
     public String getName() {
         return name;

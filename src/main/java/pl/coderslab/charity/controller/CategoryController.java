@@ -1,15 +1,15 @@
 package pl.coderslab.charity.controller;
 
 import org.springframework.stereotype.Controller;
-import pl.coderslab.charity.service.CategoryService;
+import pl.coderslab.charity.service.CategoryServiceImpl;
 
 @Controller
 public class CategoryController {
 
-    private final CategoryService categoryService;
+    private final CategoryServiceImpl categoryService;
 
 
-    public CategoryController(CategoryService categoryService) {
+    public CategoryController(CategoryServiceImpl categoryService) {
         this.categoryService = categoryService;
     }
 }

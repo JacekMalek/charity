@@ -20,16 +20,14 @@ import java.util.List;
 @Secured({"ROLE_USER", "ROLE_ADMIN"})
 public class DonationController {
 
-    private final CategoryService categoryService;
-    private final InstitutionService institutionService;
-    private final DonationService donationService;
-    private final DonationServiceImpl donationServiceImpl;
+    private final CategoryServiceImpl categoryService;
+    private final InstitutionServiceImpl institutionService;
+    private final DonationServiceImpl donationService;
 
-    public DonationController(CategoryService categoryService, InstitutionService institutionService, DonationService donationService, DonationServiceImpl donationServiceImpl) {
+    public DonationController(CategoryServiceImpl categoryService, InstitutionServiceImpl institutionService, DonationServiceImpl donationService) {
         this.categoryService = categoryService;
         this.institutionService = institutionService;
         this.donationService = donationService;
-        this.donationServiceImpl = donationServiceImpl;
     }
 
 
@@ -44,7 +42,7 @@ public class DonationController {
         if (bindingResult.hasErrors()) {
             return "form";
         }
-        donationServiceImpl.addUser(donationDto, currentUser);
+        donationService.addUser(donationDto, currentUser);
         return "redirect:form-confirmation";
     }
 
