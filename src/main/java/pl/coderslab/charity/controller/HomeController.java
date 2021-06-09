@@ -4,6 +4,7 @@ import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import pl.coderslab.charity.dto.EmailDto;
@@ -39,7 +40,7 @@ public class HomeController {
         model.addAttribute("institutions", institutions);
         model.addAttribute("numberOfGifts", numberOfGifts);
         model.addAttribute("numberOfBags", numberOfBags);
-        model.addAttribute("email", new EmailDto());
+        model.addAttribute("emailDto", new EmailDto());
         return "index";
     }
 

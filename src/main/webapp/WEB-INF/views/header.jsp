@@ -20,7 +20,7 @@
         <ul class="nav--actions">
             <sec:authorize access="isAnonymous()">
                 <form action="<c:url value="/logout"/>" method="post">
-                    <li><a href="/login" class="btn btn--small btn--without-border">Zaloguj</a></li>
+                    <li><a href="/user/login" class="btn btn--small btn--without-border">Zaloguj</a></li>
                     <li><a href="/user/register" class="btn btn--small btn--highlighted">Załóż konto</a></li>
                     <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
                 </form>

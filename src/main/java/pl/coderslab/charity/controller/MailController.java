@@ -1,9 +1,9 @@
 package pl.coderslab.charity.controller;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-
 import pl.coderslab.charity.dto.EmailDto;
 import pl.coderslab.charity.service.MailService;
 
@@ -14,27 +14,18 @@ import javax.mail.MessagingException;
 public class MailController {
 
     private final MailService mailService;
+    private static final Logger log = LoggerFactory.getLogger(MailService.class);
 
     public MailController(MailService mailService) {
         this.mailService = mailService;
     }
 
 
-    @GetMapping("/sendEmail")
-    public String sendEmail(Model model) {
-       model.addAttribute("email", new EmailDto());
-        return "email";
-    }
-
     @PostMapping("/sendEmail")
-    public String sendEmail(@RequestParam String name, @RequestParam String surname, @RequestParam String message) throws MessagingException {
+    public String sendEmail(@ModelAttribute EmailDto emailDto, @RequestParam String name, @RequestParam String surname, @RequestParam String message) throws MessagingException {
         mailService.sendSimpleEmail("Jacek <jac.malek@gmail.com>",
                 "Zapytanie z Charity", "Imię: " + name + "\n" + "Nazwisko: " + surname + "\n" + "Treść wiadomości: " +  message);
+        log.info("Wysłano email");
         return "email-confirmation";
     }
-
-//    @GetMapping("email-confirmation")
-//    public String emailConfirmation(){
-//        return "email-confirmation";
-//    }
 }

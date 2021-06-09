@@ -5,18 +5,17 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 
 <footer>
-    <div class="contact">
-        <h2>Skontaktuj się z nami</h2>
-        <form:form method="post" modelAttribute="email" action="/sendEmail" class="form--contact">
-            <div class="form-group form-group--50"><form:input path="name" type="text" name="name" placeholder="Imię"/></div>
-            <div class="form-group form-group--50"><form:input path="surname" type="text" name="surname" placeholder="Nazwisko"/></div>
 
-            <div class="form-group"><form:textarea path="message" name="message" placeholder="Wiadomość" rows="1"/></div>
+        <div class="contact">
+            <h2>Skontaktuj się z nami</h2>
+            <form:form method="post" modelAttribute="emailDto" action="/sendEmail" class="form--contact">
+                <div class="form-group form-group--50"><form:input path="name" type="text" name="name" placeholder="Imię"/></div>
+                <div class="form-group form-group--50"><form:input path="surname" type="text" name="surname" placeholder="Nazwisko"/></div>
 
-            <button class="btn" type="submit">Wyślij</button>
-        </form:form>
-    </div>
-
+                <div class="form-group"><form:textarea path="message" name="message" placeholder="Wiadomość" rows="1"/></div>
+                <button class="btn" type="submit">Wyślij</button>
+            </form:form>
+        </div>
 
 
     <div class="bottom-line">

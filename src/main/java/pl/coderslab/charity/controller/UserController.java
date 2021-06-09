@@ -6,6 +6,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import pl.coderslab.charity.dto.EmailDto;
 import pl.coderslab.charity.dto.UserDto;
 import pl.coderslab.charity.service.UserServiceImpl;
 
@@ -21,9 +22,16 @@ public class UserController {
         this.userService = userService;
     }
 
+    @GetMapping("/login")
+    public String login(Model model){
+        model.addAttribute("emailDto", new EmailDto());
+        return "login";
+    }
+
 
     @GetMapping("/register")
     public String createUser(Model model) {
+        model.addAttribute("emailDto", new EmailDto());
         model.addAttribute("userDto", new UserDto());
         return "register";
     }
