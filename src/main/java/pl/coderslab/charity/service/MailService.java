@@ -21,7 +21,7 @@ public class MailService {
         MimeMessage msg = javaMailSender.createMimeMessage();
         MimeMessageHelper helper = new MimeMessageHelper(msg, MimeMessageHelper.MULTIPART_MODE_MIXED_RELATED, StandardCharsets.UTF_8.name());
         helper.setTo(to);
-        helper.setFrom("troll.cool@poczta.fm");
+        helper.setFrom("charityapp@onet.pl");
         helper.setSubject(subject);
         helper.setText(text);
 
