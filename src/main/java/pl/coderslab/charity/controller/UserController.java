@@ -3,10 +3,7 @@ package pl.coderslab.charity.controller;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 import pl.coderslab.charity.dto.EmailDto;
 import pl.coderslab.charity.dto.UserDto;
 import pl.coderslab.charity.service.UserServiceImpl;
@@ -38,7 +35,7 @@ public class UserController {
     }
 
     @PostMapping("/register")
-    public String createUser(@Valid UserDto userDto, BindingResult bindingResult) {
+    public String createUser(@RequestParam EmailDto emailDto, @Valid UserDto userDto, BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {
             return "register";
         } else if (!userService.checkPassword(userDto)) {

@@ -32,7 +32,7 @@
                  Witaj: <sec:authentication property="name"/>
                     <sec:authorize access="hasRole('ADMIN')">(Admin)</sec:authorize>
                     <ul class="dropdown">
-                        <li><a href="/admin/form">Profil</a></li>
+                        <li><a href="/admin/form">Panel administratora</a></li>
                         <li><a href="#">Moje zbiórki</a></li>
                         <li>
                             <form action="<c:url value="/logout"/>" method="post">
