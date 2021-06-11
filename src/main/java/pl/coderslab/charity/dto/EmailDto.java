@@ -7,6 +7,8 @@ public class EmailDto {
 
     private String surname;
 
+    private String email;
+
     private String message;
 
     public EmailDto() {
@@ -36,5 +38,13 @@ public class EmailDto {
 
     public void setMessage(String message) {
         this.message = message;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        email = email;
     }
 }

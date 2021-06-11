@@ -24,7 +24,7 @@
     </div>
 </section>
 
-<section class="steps">
+<section id="steps" class="steps">
     <h2>Wystarczą 4 proste kroki</h2>
 
     <div class="steps--container">
@@ -53,7 +53,8 @@
     <a href="/user/register" class="btn btn--large">Załóż konto</a>
 </section>
 
-<section class="about-us">
+<section id="about-us" class="about-us" >
+
     <div class="about-us--text">
         <h2>O nas</h2>
         <p> Nasz serwis pomaga łączyć darczyńców  z potrzebującymi</p>
@@ -62,6 +63,7 @@
     <div class="about-us--image"><img src="<c:url value="resources/images/about-us.jpg"/>" alt="People in circle"/>
     </div>
 </section>
+
 
     <section id="help" class="help">
     <h2>Komu pomagamy?</h2>

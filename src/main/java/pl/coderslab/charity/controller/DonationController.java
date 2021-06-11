@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import pl.coderslab.charity.dto.CategoryDto;
 import pl.coderslab.charity.dto.DonationDto;
+import pl.coderslab.charity.dto.EmailDto;
 import pl.coderslab.charity.dto.InstitutionDto;
 import pl.coderslab.charity.service.*;
 
@@ -34,11 +35,13 @@ public class DonationController {
     @GetMapping("/form")
     public String form(Model model) {
         model.addAttribute("donationDto", new DonationDto());
+        model.addAttribute("emailDto", new EmailDto());
         return "form";
     }
 
     @PostMapping("/form")
-    public String form(@Valid DonationDto donationDto, BindingResult bindingResult, @AuthenticationPrincipal CurrentUser currentUser) {
+    public String form(@ModelAttribute EmailDto emailDto, @Valid DonationDto donationDto,
+                       BindingResult bindingResult, @AuthenticationPrincipal CurrentUser currentUser) {
         if (bindingResult.hasErrors()) {
             return "form";
         }
@@ -47,7 +50,8 @@ public class DonationController {
     }
 
     @GetMapping("/form-confirmation")
-    public String confirmation() {
+    public String confirmation(Model model) {
+        model.addAttribute("emailDto", new EmailDto());
         return "/form-confirmation";
     }
 
