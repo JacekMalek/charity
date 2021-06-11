@@ -35,7 +35,7 @@ public class UserController {
     }
 
     @PostMapping("/register")
-    public String createUser(@RequestParam EmailDto emailDto, @Valid UserDto userDto, BindingResult bindingResult) {
+    public String createUser( @Valid UserDto userDto, BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {
             return "register";
         } else if (!userService.checkPassword(userDto)) {
