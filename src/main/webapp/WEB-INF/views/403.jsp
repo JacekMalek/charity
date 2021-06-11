@@ -5,6 +5,6 @@
     <title>Security with Spring Boot</title>
 </head>
 <body>
-<h1>Dostęp zabroniony</h1>
+<h1>Musisz mieć uprawnienia administratora</h1>
 </body>
 </html>
