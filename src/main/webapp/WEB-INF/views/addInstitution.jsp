@@ -48,7 +48,7 @@
 
         <!-- Nav Item - Dashboard -->
         <li class="nav-item active">
-            <a class="nav-link" href="/">
+            <a class="nav-link" href="/admin/form/allInstitutions">
                 <i class="fas fa-fw fa-tachometer-alt"></i>
                 <span>Powrót</span></a>
         </li>
@@ -74,21 +74,21 @@
                     <h6 class="m-0 font-weight-bold text-primary">Dodaj instytucję</h6>
                 </div>
                 <div class="card-body">
-                    <form method="post">
+                    <form:form method="post" modelAttribute="newInstitution">
                         <div class="form-group">
-                            <label for="userName">Nazwa</label>
-                            <input name="userName" type="text" class="form-control" id="userName"
-                                   placeholder="Nazwa użytkownika">
+                            <label for="name">Nazwa</label>
+                            <form:input  path="name" name="name" type="text" class="form-control" id="name"
+                                   placeholder="Nazwa użytkownika"/>
                         </div>
 
                         <div class="form-group">
-                            <label for="userPassword">Opis Instytucji</label>
-                            <input name="userPassword" type="password" class="form-control" id="userPassword"
-                                   placeholder="Hasło użytkownika">
+                            <label for="name">Opis Instytucji</label>
+                            <form:input path="description" name="description" class="form-control" id="description"
+                                   placeholder="Hasło użytkownika"/>
                         </div>
 
                         <button type="submit" class="btn btn-primary">Zapisz</button>
-                    </form>
+                    </form:form>
 
                 </div>
             </div>

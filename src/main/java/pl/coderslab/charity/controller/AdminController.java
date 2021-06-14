@@ -4,6 +4,7 @@ import org.springframework.security.access.annotation.Secured;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import pl.coderslab.charity.dto.EmailDto;
 import pl.coderslab.charity.dto.InstitutionDto;
@@ -40,5 +41,11 @@ public class AdminController {
     public String addInstitution(Model model){
         model.addAttribute("newInstitution", new InstitutionDto());
         return "addInstitution";
+    }
+
+    @PostMapping("/form/addInstitution")
+    public String addInstitution(InstitutionDto institutionDto){
+        institutionServiceImpl.add(institutionDto);
+        return "redirect:/admin/form/allInstitutions";
     }
 }

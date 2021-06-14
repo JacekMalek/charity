@@ -49,7 +49,7 @@
 
         <!-- Nav Item - Dashboard -->
         <li class="nav-item active">
-            <a class="nav-link" href="/">
+            <a class="nav-link" href="/admin/form">
                 <i class="fas fa-fw fa-tachometer-alt"></i>
                 <span>Powrót</span></a>
         </li>
