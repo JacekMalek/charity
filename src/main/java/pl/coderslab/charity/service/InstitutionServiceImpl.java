@@ -7,12 +7,13 @@ import org.springframework.stereotype.Service;
 import pl.coderslab.charity.dto.InstitutionDto;
 import pl.coderslab.charity.model.Institution;
 import pl.coderslab.charity.repository.InstitutionRepository;
+
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
-public class InstitutionServiceImpl implements InstitutionService<InstitutionDto>{
+public class InstitutionServiceImpl implements InstitutionService<InstitutionDto> {
 
     private final InstitutionRepository institutionRepository;
     private static final Logger log = LoggerFactory.getLogger(InstitutionServiceImpl.class);
@@ -23,10 +24,10 @@ public class InstitutionServiceImpl implements InstitutionService<InstitutionDto
 
     @Override
     public List<InstitutionDto> getAll() {
-       return institutionRepository.findAll()
-               .stream()
-               .map(institution -> new InstitutionDto(institution.getId(), institution.getName(), institution.getDescription()))
-               .collect(Collectors.toList());
+        return institutionRepository.findAll()
+                .stream()
+                .map(institution -> new InstitutionDto(institution.getId(), institution.getName(), institution.getDescription()))
+                .collect(Collectors.toList());
     }
 
     @Override
@@ -52,11 +53,16 @@ public class InstitutionServiceImpl implements InstitutionService<InstitutionDto
 
     @Override
     public void delete(Long id) {
-
+        institutionRepository.deleteById(id);
     }
 
     @Override
     public void update(InstitutionDto institutionDto) {
 
+    }
+
+    @Override
+    public Long numberOfInstitutions() {
+        return institutionRepository.count();
     }
 }

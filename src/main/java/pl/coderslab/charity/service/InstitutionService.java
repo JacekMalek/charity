@@ -18,5 +18,7 @@ public interface InstitutionService <T>{
 
     void update(T t);
 
+    Long numberOfInstitutions();
+
 }
 
