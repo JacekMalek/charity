@@ -37,7 +37,7 @@
     <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
         <!-- Sidebar - Brand -->
-        <a class="sidebar-brand d-flex align-items-center justify-content-center" href="/user/list">
+        <a class="sidebar-brand d-flex align-items-center justify-content-center" href="/admin/form">
             <div class="sidebar-brand-icon rotate-n-15">
                 <i class="fas fa-laugh-wink"></i>
             </div>
@@ -71,31 +71,30 @@
                 <h1 class="h3 mb-0 text-gray-800">Charity Panel administratora</h1>
                 <a href=/admin/form/allInstitutions class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">
                     <i class="fas fa-download fa-sm text-white-50"></i> Wykaz instytucji</a>
+
+                <a href=/admin/form/allUsers class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">
+                    <i class="fas fa-download fa-sm text-white-50"></i> Wykaz użytkowników</a>
             </div>
+
             <div class="card shadow mb-4">
                 <div class="card-header py-3">
-                    <h6 class="m-0 font-weight-bold text-primary">Lista użytkowników</h6>
+                    <h6 class="m-0 font-weight-bold text-primary">Statystyki</h6>
                 </div>
                 <div class="card-body">
                     <div class="table-responsive">
                         <table class="table">
                             <tr>
-                                <th>Id</th>
-                                <th>Nazwa użytkownika</th>
-                                <th>Email</th>
-                                <!--  <th>Hasło</th>-->
-                                <th>Akcja</th>
+                                <th>Ilość instytucji</th>
+                                <th>Ilość użytkowników</th>
+                                <th>Ilość dotacji</th>
+                                <th>Ilość worków</th>
                             </tr>
 
                             <tr>
                                 <td></td>
                                 <td></td>
-                                <td></td>
-                                <td>
-                                    <a href='#/>'>Usuń</a>
-                                    <a href='#/>'>Edytuj</a>
-                                    <a href='#/>'>Pokaż</a>
-                                </td>
+                                <td><c:out value="${numberOfGifts}"/></td>
+                                <td><c:out value="${numberOfBags}"/></td>
                             </tr>
 
                         </table>

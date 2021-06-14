@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import pl.coderslab.charity.dto.EmailDto;
 import pl.coderslab.charity.dto.InstitutionDto;
+import pl.coderslab.charity.service.DonationServiceImpl;
 import pl.coderslab.charity.service.InstitutionServiceImpl;
 
 import java.util.List;
@@ -18,15 +19,21 @@ import java.util.List;
 public class AdminController {
 
     private final InstitutionServiceImpl institutionServiceImpl;
+    private final DonationServiceImpl donationService;
 
-    public AdminController(InstitutionServiceImpl institutionServiceImpl) {
+    public AdminController(InstitutionServiceImpl institutionServiceImpl, DonationServiceImpl donationService) {
         this.institutionServiceImpl = institutionServiceImpl;
+        this.donationService = donationService;
     }
 
 
     @GetMapping("/form")
     public String adminForm(Model model) {
+        Long numberOfGifts = donationService.numberOfGifts();
+        Integer numberOfBags = donationService.numberOfBags();
         model.addAttribute("emailDto", new EmailDto());
+        model.addAttribute("numberOfGifts", numberOfGifts);
+        model.addAttribute("numberOfBags", numberOfBags);
         return "admin";
     }
 
