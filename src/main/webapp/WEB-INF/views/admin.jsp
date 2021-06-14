@@ -91,8 +91,8 @@
                             </tr>
 
                             <tr>
-                                <td></td>
-                                <td></td>
+                                <td><c:out value="${numberOfInstitutions}"/></td>
+                                <td><c:out value="${numberOfUsers}"/> </td>
                                 <td><c:out value="${numberOfGifts}"/></td>
                                 <td><c:out value="${numberOfBags}"/></td>
                             </tr>

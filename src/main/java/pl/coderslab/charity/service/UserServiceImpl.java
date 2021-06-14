@@ -52,4 +52,9 @@ public class UserServiceImpl implements UserService {
     public boolean userExist(UserDto userDto) {
         return userRepository.existsByUsername(userDto.getUsername());
     }
+
+    @Override
+    public Integer numberOfUsers() {
+        return userRepository.findCountAllUsers().orElse(0);
+    }
 }

@@ -59,4 +59,10 @@ public class InstitutionServiceImpl implements InstitutionService<InstitutionDto
     public void update(InstitutionDto institutionDto) {
 
     }
+
+
+    @Override
+    public Integer numberOfInstitutions() {
+        return institutionRepository.findCountAllInstitutions().orElse(0);
+    }
 }

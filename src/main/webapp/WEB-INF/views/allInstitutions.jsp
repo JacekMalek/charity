@@ -82,14 +82,14 @@
 
                         <table class="table">
                             <tr>
-                                <th>Id</th>
+<%--                                <th>Id</th>--%>
                                 <th>Nazwa instytucji</th>
                                 <th>Opis</th>
                                 <th>Akcja</th>
                             </tr>
                             <c:forEach items="${allInstitutions}" var="institution">
                             <tr>
-                                <td><c:out value="${institution.id}"/></td>
+<%--                                <td><c:out value="${institution.id}"/></td>--%>
                                 <td><c:out value="${institution.name}"/></td>
                                 <td><c:out value="${institution.description}"/></td>
                                 <td>
