@@ -5,6 +5,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 import pl.coderslab.charity.dto.InstitutionDto;
+import pl.coderslab.charity.model.Institution;
 import pl.coderslab.charity.repository.InstitutionRepository;
 import java.util.List;
 import java.util.Optional;
@@ -34,10 +35,14 @@ public class InstitutionServiceImpl implements InstitutionService<InstitutionDto
                 .map(institution -> new InstitutionDto(institution.getId(), institution.getName(), institution.getDescription()))
                 .getContent();
     }
-//Do zmiany
+
     @Override
     public void add(InstitutionDto institutionDto) {
-
+        Institution institution = new Institution();
+        institution.setName(institutionDto.getName());
+        institution.setDescription(institutionDto.getDescription());
+        log.info("Dodano nową instytucję");
+        institutionRepository.save(institution);
     }
 
     @Override

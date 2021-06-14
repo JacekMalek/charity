@@ -49,7 +49,7 @@
 
         <!-- Nav Item - Dashboard -->
         <li class="nav-item active">
-            <a class="nav-link" href="/">
+            <a class="nav-link" href="/admin/form">
                 <i class="fas fa-fw fa-tachometer-alt"></i>
                 <span>Powrót</span></a>
         </li>
@@ -69,37 +69,41 @@
             <!-- Page Heading -->
             <div class="d-sm-flex align-items-center justify-content-between mb-4">
                 <h1 class="h3 mb-0 text-gray-800">Charity Panel administratora</h1>
-                <a href=/admin/form/allInstitutions class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">
-                    <i class="fas fa-download fa-sm text-white-50"></i> Wykaz instytucji</a>
-
-                <a href=/admin/form/allUsers class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">
-                    <i class="fas fa-download fa-sm text-white-50"></i> Wykaz użytkowników</a>
+                <a href="/admin/form/addInstitution" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">
+                    <i class="fas fa-download fa-sm text-white-50"></i> Dodaj instytucję</a>
             </div>
-
             <div class="card shadow mb-4">
                 <div class="card-header py-3">
-                    <h6 class="m-0 font-weight-bold text-primary">Statystyki</h6>
+                    <h6 class="m-0 font-weight-bold text-primary">Lista instytucji</h6>
                 </div>
+
                 <div class="card-body">
                     <div class="table-responsive">
+
                         <table class="table">
                             <tr>
-                                <th>Ilość instytucji</th>
-                                <th>Ilość użytkowników</th>
-                                <th>Ilość dotacji</th>
-                                <th>Ilość worków</th>
+                                <th>Id</th>
+                                <th>Nazwa instytucji</th>
+                                <th>Opis</th>
+                                <th>Akcja</th>
                             </tr>
-
+                            <c:forEach items="${allInstitutions}" var="institution">
                             <tr>
-                                <td></td>
-                                <td></td>
-                                <td><c:out value="${numberOfGifts}"/></td>
-                                <td><c:out value="${numberOfBags}"/></td>
+                                <td><c:out value="${institution.id}"/></td>
+                                <td><c:out value="${institution.name}"/></td>
+                                <td><c:out value="${institution.description}"/></td>
+                                <td>
+                                    <a href='#/>'>Usuń</a>
+                                    <a href='#/>'>Edytuj</a>
+                                    <a href='#/>'>Pokaż</a>
+                                </td>
                             </tr>
-
+                            </c:forEach>
                         </table>
+
                     </div>
                 </div>
+
             </div>
         </div>
     </div>
