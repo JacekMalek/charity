@@ -69,38 +69,41 @@
             <!-- Page Heading -->
             <div class="d-sm-flex align-items-center justify-content-between mb-4">
                 <h1 class="h3 mb-0 text-gray-800">Charity Panel administratora</h1>
-                <a href=/admin/form/allInstitutions class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">
-                    <i class="fas fa-download fa-sm text-white-50"></i> Wykaz instytucji</a>
+                <a href="/admin/form/addInstitution" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">
+                    <i class="fas fa-download fa-sm text-white-50"></i> Dodaj instytucję</a>
             </div>
             <div class="card shadow mb-4">
                 <div class="card-header py-3">
-                    <h6 class="m-0 font-weight-bold text-primary">Lista użytkowników</h6>
+                    <h6 class="m-0 font-weight-bold text-primary">Lista instytucji</h6>
                 </div>
+
                 <div class="card-body">
                     <div class="table-responsive">
+
                         <table class="table">
                             <tr>
                                 <th>Id</th>
-                                <th>Nazwa użytkownika</th>
-                                <th>Email</th>
-                                <!--  <th>Hasło</th>-->
+                                <th>Nazwa instytucji</th>
+                                <th>Opis</th>
                                 <th>Akcja</th>
                             </tr>
-
+                            <c:forEach items="${allInstitutions}" var="institution">
                             <tr>
-                                <td></td>
-                                <td></td>
-                                <td></td>
+                                <td><c:out value="${institution.id}"/></td>
+                                <td><c:out value="${institution.name}"/></td>
+                                <td><c:out value="${institution.description}"/></td>
                                 <td>
                                     <a href='#/>'>Usuń</a>
                                     <a href='#/>'>Edytuj</a>
                                     <a href='#/>'>Pokaż</a>
                                 </td>
                             </tr>
-
+                            </c:forEach>
                         </table>
+
                     </div>
                 </div>
+
             </div>
         </div>
     </div>

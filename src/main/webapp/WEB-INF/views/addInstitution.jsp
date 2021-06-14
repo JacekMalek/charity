@@ -4,7 +4,6 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 
-
 <!DOCTYPE html>
 <html lang="pl">
 
@@ -37,7 +36,7 @@
     <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
         <!-- Sidebar - Brand -->
-        <a class="sidebar-brand d-flex align-items-center justify-content-center" href="/user/list">
+        <a class="sidebar-brand d-flex align-items-center justify-content-center" href="/admin/form">
             <div class="sidebar-brand-icon rotate-n-15">
                 <i class="fas fa-laugh-wink"></i>
             </div>
@@ -63,49 +62,36 @@
         </nav>
 
 
-        <!-- Begin Page Content -->
         <div class="container-fluid">
-
             <!-- Page Heading -->
             <div class="d-sm-flex align-items-center justify-content-between mb-4">
                 <h1 class="h3 mb-0 text-gray-800">Charity Panel administratora</h1>
-                <a href=/admin/form/allInstitutions class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">
-                    <i class="fas fa-download fa-sm text-white-50"></i> Wykaz instytucji</a>
+                <a href="/admin/form/allInstitutions" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">
+                    <i class="fas fa-download fa-sm text-white-50"></i> Lista instytucji</a>
             </div>
             <div class="card shadow mb-4">
                 <div class="card-header py-3">
-                    <h6 class="m-0 font-weight-bold text-primary">Lista użytkowników</h6>
+                    <h6 class="m-0 font-weight-bold text-primary">Dodaj instytucję</h6>
                 </div>
                 <div class="card-body">
-                    <div class="table-responsive">
-                        <table class="table">
-                            <tr>
-                                <th>Id</th>
-                                <th>Nazwa użytkownika</th>
-                                <th>Email</th>
-                                <!--  <th>Hasło</th>-->
-                                <th>Akcja</th>
-                            </tr>
+                    <form method="post">
+                        <div class="form-group">
+                            <label for="userName">Nazwa</label>
+                            <input name="userName" type="text" class="form-control" id="userName"
+                                   placeholder="Nazwa użytkownika">
+                        </div>
 
-                            <tr>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td>
-                                    <a href='#/>'>Usuń</a>
-                                    <a href='#/>'>Edytuj</a>
-                                    <a href='#/>'>Pokaż</a>
-                                </td>
-                            </tr>
+                        <div class="form-group">
+                            <label for="userPassword">Opis Instytucji</label>
+                            <input name="userPassword" type="password" class="form-control" id="userPassword"
+                                   placeholder="Hasło użytkownika">
+                        </div>
 
-                        </table>
-                    </div>
+                        <button type="submit" class="btn btn-primary">Zapisz</button>
+                    </form>
+
                 </div>
             </div>
         </div>
     </div>
 </div>
-</body>
-
-</html>
-
