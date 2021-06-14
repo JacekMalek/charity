@@ -30,8 +30,8 @@ public class AdminController {
     public String adminForm(Model model) {
         Long numberOfGifts = donationServiceImpl.numberOfGifts();
         Integer numberOfBags = donationServiceImpl.numberOfBags();
-        Integer numberOfInstitutions = institutionServiceImpl.numberOfInstitutions();
-        Integer numberOfUsers =  userServiceImpl.numberOfUsers();
+        Long numberOfInstitutions = institutionServiceImpl.numberOfInstitutions();
+        Long numberOfUsers =  userServiceImpl.numberOfUsers();
         model.addAttribute("emailDto", new EmailDto());
         model.addAttribute("numberOfGifts", numberOfGifts);
         model.addAttribute("numberOfBags", numberOfBags);

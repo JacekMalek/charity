@@ -31,7 +31,6 @@ public class UserServiceImpl implements UserService {
     }
 
 
-
     @Override
     public void saveUser(UserDto userDto) {
         User user = new User();
@@ -44,7 +43,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public boolean checkPassword(UserDto userDto){
+    public boolean checkPassword(UserDto userDto) {
         return userDto.getPassword().equals(userDto.getSecondPassword());
     }
 
@@ -54,7 +53,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public Integer numberOfUsers() {
-        return userRepository.findCountAllUsers().orElse(0);
+    public Long numberOfUsers() {
+        return userRepository.count();
     }
 }

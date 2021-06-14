@@ -10,7 +10,4 @@ import java.util.Optional;
 
 @Repository
 public interface InstitutionRepository extends JpaRepository<Institution, Long> {
-
-    @Query("SELECT COUNT(d.id) FROM Institution d")
-    Optional<Integer> findCountAllInstitutions();
 }

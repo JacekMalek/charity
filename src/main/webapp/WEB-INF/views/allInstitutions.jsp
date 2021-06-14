@@ -93,9 +93,9 @@
                                 <td><c:out value="${institution.name}"/></td>
                                 <td><c:out value="${institution.description}"/></td>
                                 <td>
-                                    <a href='#/>'>Usuń</a>
-                                    <a href='#/>'>Edytuj</a>
-                                    <a href='#/>'>Pokaż</a>
+                                    <a href="/admin/form/updateInstitution/${institution.id}"/>Edytuj</a>
+                                    <a href="/admin/form/deleteInstitution/${institution.id}"/>Usuń</a>
+
                                 </td>
                             </tr>
                             </c:forEach>

@@ -4,6 +4,7 @@ import org.springframework.security.access.annotation.Secured;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import pl.coderslab.charity.dto.InstitutionDto;
@@ -41,4 +42,12 @@ public class InstitutionController {
         institutionServiceImpl.add(institutionDto);
         return "redirect:/admin/form/allInstitutions";
     }
+
+    @GetMapping("/form/deleteInstitution/{id}")
+    public String deleteInstitution(@PathVariable Long id){
+        institutionServiceImpl.delete(id);
+        return "redirect:/admin/form/allInstitutions";
+    }
+
+
 }

@@ -13,10 +13,6 @@ public interface UserRepository extends JpaRepository<User, Long> {
     User findByUsername(String username);
 
     boolean existsByUsername(String username);
-
-    @Query("SELECT COUNT(d.id) FROM User d")
-    Optional<Integer> findCountAllUsers();
-
 //
 //    Optional<User> findById(Long id);
 }

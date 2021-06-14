@@ -13,6 +13,5 @@ public interface UserService {
 
     boolean userExist(UserDto userDto);
 
-    Integer numberOfUsers();
-
+    Long numberOfUsers();
 }

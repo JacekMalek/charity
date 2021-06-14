@@ -18,7 +18,7 @@ public interface InstitutionService <T>{
 
     void update(T t);
 
-    Integer numberOfInstitutions();
+    Long numberOfInstitutions();
 
 }
 
