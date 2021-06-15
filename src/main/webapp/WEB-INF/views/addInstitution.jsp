@@ -76,16 +76,16 @@
                 <div class="card-body">
                     <form:form method="post" modelAttribute="institutionDto">
                         <div class="form-group">
-                            <label for="name">Nazwa</label>
+                            <label for="name">Nazwa instytucji</label>
                             <form:input  path="name" name="name" type="text" class="form-control" id="name"
-                                   placeholder="Nazwa użytkownika"/>
+                                   placeholder="Nazwa instytucji"/>
                             <form:errors path="name" cssClass="error"/>
                         </div>
 
                         <div class="form-group">
-                            <label for="name">Opis Instytucji</label>
+                            <label for="name">Opis</label>
                             <form:input path="description" name="description" class="form-control" id="description"
-                                   placeholder="Hasło użytkownika"/>
+                                   placeholder="Opis instytucji"/>
                             <form:errors path="description" cssClass="error"/>
                         </div>
 

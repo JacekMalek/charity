@@ -3,6 +3,7 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib prefix="from" uri="http://www.springframework.org/tags/form" %>
 
 <!DOCTYPE html>
 <html lang="pl">
@@ -71,26 +72,27 @@
             </div>
             <div class="card shadow mb-4">
                 <div class="card-header py-3">
-                    <h6 class="m-0 font-weight-bold text-primary">Dodaj instytucję</h6>
+                    <h6 class="m-0 font-weight-bold text-primary">Edytuj instytucję</h6>
                 </div>
                 <div class="card-body">
 
                     <form:form method="post" action="/admin/form/updateInstitution" modelAttribute="institutionDto">
                         <div>
                             <form:hidden path="id"/>
-
                         </div>
 
                         <div class="form-group">
-                            <label for="name">Nazwa</label>
+                            <label for="name">Nazwa instytucji</label>
                             <form:input path="name" name="name" type="text" class="form-control" id="name"
-                                        placeholder="Nazwa użytkownika"/>
+                                        placeholder="Nazwa instytucji"/>
+                            <form:errors path="name" cssClass="error"/>
                         </div>
 
                         <div class="form-group">
-                            <label for="name">Opis Instytucji</label>
+                            <label for="name">Opis</label>
                             <form:input path="description" name="description" class="form-control" id="description"
-                                        placeholder="Hasło użytkownika"/>
+                                        placeholder="Opis Instytucji"/>
+                            <from:errors path="description" cssClass="error"/>
                         </div>
 
                         <button type="submit" class="btn btn-primary">Zapisz</button>

@@ -61,8 +61,11 @@ public class InstitutionController {
     }
 
     @PostMapping("/form/updateInstitution")
-    public String editInstitution(InstitutionDto institutionDto){
-       institutionServiceImpl.update(institutionDto);
+    public String editInstitution(@Valid InstitutionDto institutionDto, BindingResult bindingResult){
+       if(bindingResult.hasErrors()){
+           return "updateInstitution";
+       }
+        institutionServiceImpl.update(institutionDto);
        return  "redirect:/admin/form/allInstitutions";
     }
 
