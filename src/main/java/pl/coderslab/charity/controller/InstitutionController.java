@@ -51,8 +51,14 @@ public class InstitutionController {
 
     @GetMapping("/form/updateInstitution/{id}")
     public String editInstitution(@PathVariable Long id, Model model){
-        model.addAttribute("institution", institutionServiceImpl.get(id));
+        model.addAttribute("institutionDto", institutionServiceImpl.get(id));
         return "updateInstitution";
+    }
+
+    @PostMapping("/form/updateInstitution")
+    public String editInstitution(InstitutionDto institutionDto){
+       institutionServiceImpl.update(institutionDto);
+       return  "redirect:/admin/form/allInstitutions";
     }
 
 

@@ -75,7 +75,7 @@
                 </div>
                 <div class="card-body">
 
-                    <form:form method="post" modelAttribute="institution">
+                    <form:form method="post" action="/admin/form/updateInstitution" modelAttribute="institutionDto">
                         <div>
                             <form:hidden path="id"/>
 

@@ -47,9 +47,10 @@ public class InstitutionServiceImpl implements InstitutionService<InstitutionDto
     }
 
     @Override
-    public Optional<InstitutionDto> get(Long id) {
-        return Optional.empty();
+    public Optional get(Long id) {
+        return institutionRepository.findById(id);
     }
+//    TODO Do zmiany, stream jest niedostępny, sprawdzić dlaczego
 
 
 
