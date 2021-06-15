@@ -3,6 +3,7 @@ package pl.coderslab.charity.controller;
 import org.springframework.security.access.annotation.Secured;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -10,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import pl.coderslab.charity.dto.InstitutionDto;
 import pl.coderslab.charity.service.InstitutionServiceImpl;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @Controller
@@ -33,12 +35,15 @@ public class InstitutionController {
 
     @GetMapping("/form/addInstitution")
     public String addInstitution(Model model){
-        model.addAttribute("newInstitution", new InstitutionDto());
+        model.addAttribute("institutionDto", new InstitutionDto());
         return "addInstitution";
     }
 
     @PostMapping("/form/addInstitution")
-    public String addInstitution(InstitutionDto institutionDto){
+    public String addInstitution(@Valid InstitutionDto institutionDto, BindingResult bindingResult){
+        if (bindingResult.hasErrors()) {
+            return "addInstitution";
+        }
         institutionServiceImpl.add(institutionDto);
         return "redirect:/admin/form/allInstitutions";
     }

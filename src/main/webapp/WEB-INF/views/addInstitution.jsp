@@ -74,17 +74,19 @@
                     <h6 class="m-0 font-weight-bold text-primary">Dodaj instytucję</h6>
                 </div>
                 <div class="card-body">
-                    <form:form method="post" modelAttribute="newInstitution">
+                    <form:form method="post" modelAttribute="institutionDto">
                         <div class="form-group">
                             <label for="name">Nazwa</label>
                             <form:input  path="name" name="name" type="text" class="form-control" id="name"
                                    placeholder="Nazwa użytkownika"/>
+                            <form:errors path="name" cssClass="error"/>
                         </div>
 
                         <div class="form-group">
                             <label for="name">Opis Instytucji</label>
                             <form:input path="description" name="description" class="form-control" id="description"
                                    placeholder="Hasło użytkownika"/>
+                            <form:errors path="description" cssClass="error"/>
                         </div>
 
                         <button type="submit" class="btn btn-primary">Zapisz</button>

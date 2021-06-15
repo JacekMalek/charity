@@ -12,12 +12,12 @@ public class InstitutionDto {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @NotBlank
-    @Size(min = 2, max = 255)
+    @NotBlank(message = "Nazwa nie może być pusta")
+    @Size(min = 2, max = 255, message = "Długość pomiędzy 2 a 255")
     private String name;
 
-    @NotBlank
-    @Size(min = 10)
+    @NotBlank(message = "Nazwa nie może być pusta")
+    @Size(min = 10, message = "Minimalna długość to 10")
     private String description;
 
 
