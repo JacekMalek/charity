@@ -3,6 +3,8 @@ package pl.coderslab.charity.service;
 import pl.coderslab.charity.dto.UserDto;
 import pl.coderslab.charity.model.User;
 
+import java.util.List;
+
 public interface UserService {
 
     User findByUserName(String name);
@@ -14,4 +16,6 @@ public interface UserService {
     boolean userExist(UserDto userDto);
 
     Long numberOfUsers();
+
+    List<UserDto> getAll();
 }
