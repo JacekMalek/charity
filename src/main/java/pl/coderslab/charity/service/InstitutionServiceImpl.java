@@ -51,6 +51,8 @@ public class InstitutionServiceImpl implements InstitutionService<InstitutionDto
         return Optional.empty();
     }
 
+
+
     @Override
     public void delete(Long id) {
         institutionRepository.deleteById(id);
@@ -58,7 +60,11 @@ public class InstitutionServiceImpl implements InstitutionService<InstitutionDto
 
     @Override
     public void update(InstitutionDto institutionDto) {
-
+        Institution institution = new Institution();
+        institution.setId(institutionDto.getId());
+        institution.setName(institutionDto.getName());
+        institution.setDescription(institutionDto.getDescription());
+        institutionRepository.save(institution);
     }
 
     @Override
