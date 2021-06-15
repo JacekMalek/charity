@@ -66,4 +66,9 @@ public class UserServiceImpl implements UserService {
                 .map(user -> new UserDto(user.getId(), user.getUsername(), user.getPassword(), user.getEnabled()))
                 .collect(Collectors.toList());
     }
+
+    @Override
+    public void delete(Long id) {
+        userRepository.deleteById(id);
+    }
 }
