@@ -47,9 +47,12 @@ public class InstitutionServiceImpl implements InstitutionService<InstitutionDto
     }
 
     @Override
-    public Optional<InstitutionDto> get(Long id) {
-        return Optional.empty();
+    public Optional get(Long id) {
+        return institutionRepository.findById(id);
     }
+//    TODO Do zmiany, stream jest niedostępny, sprawdzić dlaczego
+
+
 
     @Override
     public void delete(Long id) {
@@ -58,7 +61,11 @@ public class InstitutionServiceImpl implements InstitutionService<InstitutionDto
 
     @Override
     public void update(InstitutionDto institutionDto) {
-
+        Institution institution = new Institution();
+        institution.setId(institutionDto.getId());
+        institution.setName(institutionDto.getName());
+        institution.setDescription(institutionDto.getDescription());
+        institutionRepository.save(institution);
     }
 
     @Override
