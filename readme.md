@@ -13,11 +13,7 @@
 
 
 ## General Information
-- Provide general information about your project here.
-- What problem does it (intend to) solve?
-- What is the purpose of your project?
-- Why did you undertake it?
-<!-- You don't have to answer all the questions - just the ones relevant to your project. -->
+- An application that helps to share charities with others.
 
 
 ## Technologies Used
@@ -33,9 +29,10 @@
 
 ## Features
 List the ready features here:
-- Awesome feature 1
-- Awesome feature 2
-- Awesome feature 3
+- donation of items 
+- registration and login
+- administrator panel - CRUD
+- sending messages from the application
 
 
 
@@ -43,10 +40,9 @@ List the ready features here:
 ![Charity0](/home/jacek/portfolioLabCharity/images/Charity0.png)
 ![Charity2](/home/jacek/portfolioLabCharity/images/Charity2.png)
 ![Charity1](/home/jacek/portfolioLabCharity/images/Charity1.png)
-<!-- If you have screenshots you'd like to share, include them here. -->
 
 
 
 ## Contact
-Created by Jacek Małek(jac.malek@gmail.com) - feel free to contact me!
+Created by [@Jacek Małek](jac.malek@gmail.com) - feel free to contact me!
 
