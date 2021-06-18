@@ -10,7 +10,6 @@ If you have the project hosted somewhere, include the link here. -->
 * [Features](#features)
 * [Screenshots](#screenshots)
 * [Contact](#contact)
-<!-- * [License](#license) -->
 
 
 ## General Information
