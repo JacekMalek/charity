@@ -45,5 +45,5 @@ List the ready features here:
 
 
 ## Contact
-Created by [@flynerdpl](https://www.flynerd.pl/) - feel free to contact me!
+Created by Jacek Małek(jac.malek@gmail.com)  - feel free to contact me!
 
