@@ -1,4 +1,5 @@
 # Charity App
+
 <!-- > Outline a brief description of your project.
 > Live demo [_here_](https://www.example.com).
 If you have the project hosted somewhere, include the link here. -->
@@ -29,7 +30,7 @@ If you have the project hosted somewhere, include the link here. -->
 
 ## Features
 List the ready features here:
-- donation of items 
+- donation of items
 - registration and login
 - administrator panel - CRUD
 - sending messages from the application
@@ -37,12 +38,11 @@ List the ready features here:
 
 
 ## Screenshots
-![Charity0](/home/jacek/portfolioLabCharity/images/Charity0.png)
-![Charity2](/home/jacek/portfolioLabCharity/images/Charity2.png)
-![Charity1](/home/jacek/portfolioLabCharity/images/Charity1.png)
+![Charity0](./images/Charity0.png)
+![Charity2](./images/Charity2.png)
+![Charity1](./images/Charity1.png)
 
 
 
 ## Contact
-Created by [@Jacek Małek](jac.malek@gmail.com) - feel free to contact me!
-
+Created by [Jacek Małek](mailto:jac.malek@gmail.com) - feel free to contact me!
