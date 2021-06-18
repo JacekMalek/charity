@@ -10,6 +10,8 @@ import pl.coderslab.charity.repository.UserRepository;
 
 import java.util.Arrays;
 import java.util.HashSet;
+import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class UserServiceImpl implements UserService {
@@ -55,5 +57,18 @@ public class UserServiceImpl implements UserService {
     @Override
     public Long numberOfUsers() {
         return userRepository.count();
+    }
+
+    @Override
+    public List<UserDto> getAll() {
+        return userRepository.findAll()
+                .stream()
+                .map(user -> new UserDto(user.getId(), user.getUsername(), user.getPassword(), user.getEnabled()))
+                .collect(Collectors.toList());
+    }
+
+    @Override
+    public void delete(Long id) {
+        userRepository.deleteById(id);
     }
 }

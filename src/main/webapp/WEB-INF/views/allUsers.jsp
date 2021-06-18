@@ -4,6 +4,7 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 
+
 <!DOCTYPE html>
 <html lang="pl">
 
@@ -48,7 +49,7 @@
 
         <!-- Nav Item - Dashboard -->
         <li class="nav-item active">
-            <a class="nav-link" href="/admin/form/allInstitutions">
+            <a class="nav-link" href="/admin/form">
                 <i class="fas fa-fw fa-tachometer-alt"></i>
                 <span>Powrót</span></a>
         </li>
@@ -62,38 +63,55 @@
         </nav>
 
 
+        <!-- Begin Page Content -->
         <div class="container-fluid">
+
             <!-- Page Heading -->
             <div class="d-sm-flex align-items-center justify-content-between mb-4">
                 <h1 class="h3 mb-0 text-gray-800">Charity Panel administratora</h1>
-                <a href="/admin/form/allInstitutions" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">
-                    <i class="fas fa-download fa-sm text-white-50"></i> Lista instytucji</a>
             </div>
             <div class="card shadow mb-4">
                 <div class="card-header py-3">
-                    <h6 class="m-0 font-weight-bold text-primary">Dodaj instytucję</h6>
+                    <h6 class="m-0 font-weight-bold text-primary">Lista użytkowników</h6>
                 </div>
+
                 <div class="card-body">
-                    <form:form method="post" modelAttribute="institutionDto">
-                        <div class="form-group">
-                            <label for="name">Nazwa instytucji</label>
-                            <form:input  path="name" name="name" type="text" class="form-control" id="name"
-                                   placeholder="Nazwa instytucji"/>
-                            <form:errors path="name" cssClass="error"/>
-                        </div>
+                    <div class="table-responsive">
 
-                        <div class="form-group">
-                            <label for="name">Opis</label>
-                            <form:input path="description" name="description" class="form-control" id="description"
-                                   placeholder="Opis instytucji"/>
-                            <form:errors path="description" cssClass="error"/>
-                        </div>
+                        <table class="table">
+                            <tr>
+                                <%--                                <th>Id</th>--%>
+                                <th>Nazwa użytkownika</th>
+                                <th>Hasło</th>
+                                <th>Zablokowany<br>
+                                    (0 - nie, 1 - tak)
+                                </th>
+                                <th>Akcja</th>
+                            </tr>
+                            <c:forEach items="${allUsers}" var="user">
+                                <tr>
+                                        <%--                                <td><c:out value="${institution.id}"/></td>--%>
+                                    <td><c:out value="${user.username}"/></td>
+                                    <td><c:out value="${user.password}"/></td>
+                                    <td><c:out value="${user.enabled}"/></td>
+                                    <td>
+                                        <a href="/admin/form/updateUser/${user.id}"/>Edytuj</a>
+                                        <a href="/admin/form/deleteUser/${user.id}"/>Usuń</a>
+                                        <a href="/#"/>Zablokuj</a>
 
-                        <button type="submit" class="btn btn-primary">Zapisz</button>
-                    </form:form>
+                                    </td>
+                                </tr>
+                            </c:forEach>
+                        </table>
 
+                    </div>
                 </div>
+
             </div>
         </div>
     </div>
 </div>
+</body>
+
+</html>
+

@@ -30,6 +30,12 @@ public class UserDto {
     public UserDto() {
     }
 
+    public UserDto(Long id, String username, String password, int enabled) {
+        this.id = id;
+        this.username = username;
+        this.password = password;
+        this.enabled = enabled;
+    }
 
     public Long getId() {
         return id;

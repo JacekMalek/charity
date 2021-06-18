@@ -48,7 +48,7 @@
 
         <!-- Nav Item - Dashboard -->
         <li class="nav-item active">
-            <a class="nav-link" href="/admin/form/allInstitutions">
+            <a class="nav-link" href="/admin/form/allUsers">
                 <i class="fas fa-fw fa-tachometer-alt"></i>
                 <span>Powrót</span></a>
         </li>
@@ -66,27 +66,25 @@
             <!-- Page Heading -->
             <div class="d-sm-flex align-items-center justify-content-between mb-4">
                 <h1 class="h3 mb-0 text-gray-800">Charity Panel administratora</h1>
-                <a href="/admin/form/allInstitutions" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">
-                    <i class="fas fa-download fa-sm text-white-50"></i> Lista instytucji</a>
+                <a href="/admin/form/allUsers" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">
+                    <i class="fas fa-download fa-sm text-white-50"></i> Lista użytkowników</a>
             </div>
             <div class="card shadow mb-4">
                 <div class="card-header py-3">
-                    <h6 class="m-0 font-weight-bold text-primary">Dodaj instytucję</h6>
+                    <h6 class="m-0 font-weight-bold text-primary">Edytuj użytkownika</h6>
                 </div>
                 <div class="card-body">
-                    <form:form method="post" modelAttribute="institutionDto">
+                    <form:form method="post" modelAttribute="userDto">
                         <div class="form-group">
-                            <label for="name">Nazwa instytucji</label>
-                            <form:input  path="name" name="name" type="text" class="form-control" id="name"
-                                   placeholder="Nazwa instytucji"/>
-                            <form:errors path="name" cssClass="error"/>
+                            <label for="name">Nazwa użytkownika</label>
+                            <form:input  path="username" name="username" type="text" class="form-control" id="name"
+                                         placeholder="Nazwa użytkownika"/>
+                            <form:errors path="usernamename" cssClass="error"/>
                         </div>
 
                         <div class="form-group">
-                            <label for="name">Opis</label>
-                            <form:input path="description" name="description" class="form-control" id="description"
-                                   placeholder="Opis instytucji"/>
-                            <form:errors path="description" cssClass="error"/>
+                            <label for="name">Hasło"/>
+                            <form:errors path="password" cssClass="error"/>
                         </div>
 
                         <button type="submit" class="btn btn-primary">Zapisz</button>
