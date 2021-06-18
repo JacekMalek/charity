@@ -38,7 +38,7 @@ List the ready features here:
 
 
 ## Screenshots
-![Charity0](/home/jacek/portfolioLabCharity/images/Charity0.png)
+![Charity0](./images/Charity0.png)
 ![Charity2](/home/jacek/portfolioLabCharity/images/Charity2.png)
 ![Charity1](/home/jacek/portfolioLabCharity/images/Charity1.png)
 
