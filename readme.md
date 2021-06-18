@@ -45,5 +45,5 @@ List the ready features here:
 
 
 ## Contact
-Created by ing [Jacek Małek](mailto:jac.malek@gmail.com) - feel free to contact me!
+Created by [Jacek Małek](mailto:jac.malek@gmail.com) - feel free to contact me!
 
